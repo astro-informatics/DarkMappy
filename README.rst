@@ -1,6 +1,6 @@
 .. image:: https://img.shields.io/badge/GitHub-PyTemplate-brightgreen.svg?style=flat
     :target: https://github.com/astro-informatics/code_template
-.. image:: https://github.com/astro-informatics/code_template/actions/workflows/python.yml/badge.svg
+.. image:: https://github.com/astro-informatics/code_template/actions/workflows/python.yml/badge.svg?branch=main
     :target: https://github.com/astro-informatics/code_template/actions/workflows/python.yml
 .. image:: https://readthedocs.org/projects/ansicolortags/badge/?version=latest
     :target: https://astro-informatics.github.io/code_template
