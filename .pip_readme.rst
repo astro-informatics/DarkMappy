@@ -8,8 +8,12 @@
     :target: https://codecov.io/gh/astro-informatics/DarkMappy
 .. image:: https://img.shields.io/badge/License-GPL-blue.svg
     :target: http://perso.crans.org/besson/LICENSE.html
-.. image:: http://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg?style=flat
-    :target: https://arxiv.org/abs/xxxx.xxxxx
+.. image:: http://img.shields.io/badge/arXiv-2004.07855-orange.svg?style=flat
+    :target: https://arxiv.org/abs/2004.07855
+.. image:: http://img.shields.io/badge/arXiv-1812.04014-orange.svg?style=flat
+    :target: https://arxiv.org/abs/1812.04014
+.. image:: http://img.shields.io/badge/arXiv-1812.04017-orange.svg?style=flat
+    :target: https://arxiv.org/abs/1812.04017
 
 DarkMappy: hybrid Bayesian inference of the dark universe
 =================================================================================================================

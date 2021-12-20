@@ -103,7 +103,7 @@ html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # html_logo = "assets/placeholder_logo.svg"
-html_logo = "assets/darkmappy_alt_text.png"
+html_logo = "assets/darkmappy_alt_no_text.png"
 html_theme_options = {
     'logo_only': True,
     'display_version': True,
