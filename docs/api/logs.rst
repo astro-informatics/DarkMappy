@@ -1,2 +1,2 @@
-.. automodule:: project_name.logs
+.. automodule:: darkmappy.logs
    :members: 

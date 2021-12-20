@@ -1,22 +1,24 @@
 |GitHub| |Build Status| |Docs| |CodeCov| |GPL license| |ArXiv|
 
-.. |GitHub| image:: https://img.shields.io/badge/GitHub-PyTemplate-brightgreen.svg?style=flat
-    :target: https://github.com/astro-informatics/code_template
-.. |Build Status| image:: https://github.com/astro-informatics/code_template/actions/workflows/python.yml/badge.svg
-    :target: https://github.com/astro-informatics/code_template/actions/workflows/python.yml
+.. |GitHub| image:: https://img.shields.io/badge/GitHub-DarkMappy-brightgreen.svg?style=flat
+    :target: https://github.com/astro-informatics/DarkMappy
+.. |Build Status| image:: https://github.com/astro-informatics/DarkMappy/actions/workflows/python.yml/badge.svg
+    :target: https://github.com/astro-informatics/DarkMappy/actions/workflows/python.yml
 .. |Docs| image:: https://readthedocs.org/projects/ansicolortags/badge/?version=latest
-    :target: https://astro-informatics.github.io/code_template
+    :target: https://astro-informatics.github.io/DarkMappy
 .. |CodeCov| image:: https://codecov.io/gh/astro-informatics/code_template/branch/main/graph/badge.svg?token=8QMXOZK746
-    :target: https://codecov.io/gh/astro-informatics/code_template
+    :target: https://codecov.io/gh/astro-informatics/DarkMappy
 .. |GPL License| image:: https://img.shields.io/badge/License-GPL-blue.svg
     :target: http://perso.crans.org/besson/LICENSE.html
 .. |ArXiv| image:: http://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg?style=flat
     :target: https://arxiv.org/abs/xxxx.xxxxx
 
-<project-name>
+|logo| DarkMappy: hybrid Bayesian inference of the dark universe
 =================================================================================================================
 
-Add some basic discussion about ``<project-name>`` here.
+``darkmappy`` is a lightweight python package which implements the hybrid Bayesian dark-matter reconstruction techniques 
+outlined on the plane in `Price *et al.* 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price *et al.* 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis *et al.* 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation, and by construction support principled uncertainty quantification, by leveraging recent advances in probability concentration theory (`Pereyra *et al.* 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_).
+
 
 Installation
 ============
@@ -30,7 +32,7 @@ Link to the full documentation (when deployed).
 
 Contributors
 ============
-Author names & Contributors
+Matthew A. Price & Contributors
 
 Attribution
 ===========
@@ -49,13 +51,13 @@ A BibTeX entry for <project-name> is:
 License
 =======
 
-``<project-name>`` is released under the GPL-3 license (see `LICENSE.txt <https://github.com/astro-informatics/code_template/blob/main/LICENSE.txt>`_), subject to 
-the non-commercial use condition (see `LICENSE_EXT.txt <https://github.com/astro-informatics/code_template/blob/main/LICENSE_EXT.txt>`_)
+``darkmappy`` is released under the GPL-3 license (see `LICENSE.txt <https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE.txt>`_), subject to 
+the non-commercial use condition (see `LICENSE_EXT.txt <https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE_EXT.txt>`_)
 
 .. code-block::
 
      LatentWaves
-     Copyright (C) 2022 Author names & contributors
+     Copyright (C) 2022 Matthew A. Price & contributors
 
      This program is released under the GPL-3 license (see LICENSE.txt), 
      subject to a non-commercial use condition (see LICENSE_EXT.txt).

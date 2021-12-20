@@ -1,7 +1,7 @@
 **************************
 Namespaces
 **************************
-Automatically generated documentation for **<Project-name>** APIs. All functionality is accessible through a pip installation of the **<Project-name>** package.
+Automatically generated documentation for **darkmappy** APIs. All functionality is accessible through a pip installation of the **darkmappy** package.
 
 .. tabs:: 
 	

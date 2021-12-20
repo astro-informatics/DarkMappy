@@ -2,3 +2,7 @@
 numpy 
 colorlog
 pyyaml
+
+# Spherical operations 
+pys2let
+pyssht 

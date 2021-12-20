@@ -19,9 +19,9 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'ProjectName'
-copyright = '2022, Author names'
-author = 'Author names'
+project = 'darkmappy'
+copyright = '2022, Matthew A. Price & Jason D. McEwen'
+author = 'Matthew A. Price & Jason D. McEwen'
 
 # The short X.Y version
 version = '0.0.1'
@@ -103,7 +103,7 @@ html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # html_logo = "assets/placeholder_logo.svg"
-html_logo = "assets/placeholder_logo.png"
+html_logo = "assets/darkmappy_alt_text.png"
 html_theme_options = {
     'logo_only': True,
     'display_version': True,
@@ -139,7 +139,7 @@ html_css_files = [
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ProjectNamedoc'
+htmlhelp_basename = 'DarkMappydoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -166,8 +166,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ProjectName.tex', 'ProjectName Documentation',
-     'Author names', 'manual'),
+    (master_doc, 'DarkMappy.tex', 'DarkMappy Documentation',
+     'Matthew A. Price & Jason D. McEwen', 'manual'),
 ]
 
 
@@ -176,7 +176,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'project_name', 'ProjectName Documentation',
+    (master_doc, 'darkmappy', 'DarkMappy Documentation',
      [author], 1)
 ]
 
@@ -187,8 +187,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ProjectName', 'ProjectName Documentation',
-     author, 'ProjectName', 'A witty project description!',
+    (master_doc, 'DarkMappy', 'DarkMappy Documentation',
+     author, 'DarkMappy', 'Hybrid Bayesian inference of the dark universe',
      'Miscellaneous'),
 ]
 

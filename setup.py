@@ -5,7 +5,7 @@ from setuptools import setup
 import numpy
 
 # clean previous build
-for root, dirs, files in os.walk("./project_name/", topdown=False):
+for root, dirs, files in os.walk("./darkmappy/", topdown=False):
     for name in dirs:
         if (name == "build"):
             shutil.rmtree(name)
@@ -36,16 +36,16 @@ setup(
                  'Intended Audience :: Developers',
                  'Intended Audience :: Science/Research'
                  ],
-    name = "project_name",
+    name = "darkmappy",
     version = "0.0.1",
     prefix='.',
-    url='https://github.com/astro-informatics/project_name',
-    author='Authors & Contributors',
-    author_email='primary.author.e-mail@ucl.ac.uk',
+    url='https://github.com/astro-informatics/DarkMappy',
+    author='Matthew A. Price, Jason D. McEwen & Contributors',
+    author_email='m.price.17@ucl.ac.uk',
     license='GNU General Public License v3 (GPLv3)',
     install_requires=required,
-    description='A witty project description!',
+    description='Scalable hybrid Bayesian dark-matter reconstruction algorithms',
     long_description_content_type = "text/x-rst",
     long_description = long_description,
-    packages=['project_name']
+    packages=['darkmappy']
 )
