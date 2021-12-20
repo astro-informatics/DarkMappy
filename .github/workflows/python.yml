@@ -25,7 +25,7 @@ jobs:
     
     - name: Run tests
       run: |
-        pytest --cov-report term --cov=project_name --cov-config=.coveragerc 
+        pytest --cov-report term --cov=darkmappy --cov-config=.coveragerc 
         codecov --token a1cbaab3-5787-4f12-8931-f62e844cce1a
 
     - name: Build Documentation
