@@ -21,12 +21,12 @@ jobs:
       run: |
         sudo apt install pandoc
         python -m pip install --upgrade pip    
-        bash build_project_name.sh
+        bash build_darkmappy.sh
     
     - name: Run tests
       run: |
         pytest --cov-report term --cov=project_name --cov-config=.coveragerc 
-        codecov --token 1f998eff-7a78-4160-91c1-3376fb435d21
+        codecov --token a1cbaab3-5787-4f12-8931-f62e844cce1a
 
     - name: Build Documentation
       run: |
