@@ -32,21 +32,61 @@ Link to the full documentation (when deployed).
 
 Contributors
 ============
-Matthew A. Price & Contributors
+Matthew A. Price, Jason D. McEwen & Contributors
 
 Attribution
 ===========
-A BibTeX entry for <project-name> is:
+A BibTeX entry for ``darkmappy`` is:
 
 .. code-block:: 
 
-     @article{<project-name>, 
-        author = {Author~List},
-         title = {"A totally amazing name"},
-       journal = {ArXiv},
-        eprint = {arXiv:0000.00000},
-          year = {what year is it?!}
-     }
+    @article{price:2021:spherical,
+            title = {Sparse Bayesian mass mapping with uncertainties: hypothesis testing of structure},
+           author = {M.~A.~Price and J.~D.~McEwen and X.~Cai and T.~D.~Kitching and C.~G.~R.~Wallis and {LSST Dark Energy Science Collaboration}},
+          journal = {Monthly Notices of the Royal Astronomical Society},
+             year = 2021,
+            month = jul,
+           volume = {506},
+           number = {3},
+            pages = {3678--3690},
+              doi = {10.1093/mnras/stab1983},
+        publisher = {Oxford University Press}
+    }
+
+
+.. code-block:: 
+
+    @article{price:2021:hypothesis,
+            title = {Sparse Bayesian mass mapping with uncertainties: hypothesis testing of structure},
+           author = {M.~A.~Price and J.~D.~McEwen and X.~Cai and T.~D.~Kitching and C.~G.~R.~Wallis and {LSST Dark Energy Science Collaboration}},
+          journal = {Monthly Notices of the Royal Astronomical Society},
+             year = 2021,
+            month = jul,
+           volume = {506},
+           number = {3},
+            pages = {3678--3690},
+              doi = {10.1093/mnras/stab1983},
+        publisher = {Oxford University Press}
+    }
+
+If, at any point, the direction inverse functionality (i.e. spherical Kaiser-Squires) please cite 
+
+.. code-block::
+
+    @article{wallis:2021:massmappy,
+            title = {Mapping dark matter on the celestial sphere with weak gravitational lensing},
+           author = {C.~G.~R.~Wallis and M.~A.~Price and J.~D.~McEwen and T.~D.~Kitching and B.~Leistedt and A.~Plouviez},
+          journal = {Monthly Notices of the Royal Astronomical Society},
+             year = 2021,
+            month = Nov,
+           volume = {509},
+           number = {3},
+            pages = {4480-4497},
+              doi = {10.1093/mnras/stab3235},
+        publisher = {Oxford University Press}
+    }
+
+Finally, if uncertainty quantification techniques which rely on the approximate level-set threshold (derived by `Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_) are performed please consider citing relating articles appropriately.
 
 License
 =======
@@ -56,8 +96,8 @@ the non-commercial use condition (see `LICENSE_EXT.txt <https://github.com/astro
 
 .. code-block::
 
-     LatentWaves
-     Copyright (C) 2022 Matthew A. Price & contributors
+     DarkMappy
+     Copyright (C) 2022 Matthew A. Price, Jason D. McEwen & contributors
 
      This program is released under the GPL-3 license (see LICENSE.txt), 
      subject to a non-commercial use condition (see LICENSE_EXT.txt).

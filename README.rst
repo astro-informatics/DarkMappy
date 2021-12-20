@@ -19,68 +19,61 @@
    <img src="./docs/assets/darkmappy_alt_no_text.png" align="center" height="100" width="100">
 
 ``darkmappy`` is a lightweight python package which implements the hybrid Bayesian dark-matter reconstruction techniques 
-outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation, and by construction support principled uncertainty quantification, by leveraging recent advances in probability concentration theory (`Pereyra et al. 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_).
-
-
-Auto-formatting code
-====================
-To keep the code readable and organised you should (strongly) consider using the ``black`` package. Whenever you are finished updating a file, just run 
-
-.. code-block:: bash
-
-    black <file_to_tidy.py>
-
-or alternatively format everything by running
-
-.. code-block:: bash
-
-    black project_name/*
-
-This is important as the CI enforces black formatting (this can be disabled by removing the --black flag in pytest) so your unit tests will fail if you don't do this!
-
-CodeCov
-============
-To set up code coverage you will need to enter this  
-
-.. code-block:: bash
-
-    https://codecov.io/gh/{account-name}/{desired-repo} 
-
-into any browser, then go to settings and activate the repository. You will then need to find the ``repository upload token`` which 
-should be added to the github actions script (roughly line 29)
-
-.. code-block::
-
-    codecov --token <add your token here>
-
-Next time CI runs on main branch it will automatically update codecov. Now go back to codecov, copy the badge and put it in the readme, .pipreadme, and 
-the root index of the documentation!
-
-PyPi
-=====
-To deploy the code on PyPi first test the deployment on PyPi's mirror site by, first making an account on https://test.pypi.org and then running 
-
-.. code-block:: bash 
-
-    python setup.py bdist_wheel --universal
-    twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-    pip install -i https://test.pypi.org/simple/ project_name
-
-From the root directory. Keep in mind that installing from the mirror site won't automatically find dependencies, so if you have an error because the pacakge can't find numpy that's probably why, and may not be an issue on the main PyPi site. To deploy the main PyPi site simply remove the --repostiry-url name, note that you can add multiple wheels to dist/*, to provide a package which may be pip installed for multiple python version, and on multiple machine architectures.
+outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation, and by construction support principled uncertainty quantification, by leveraging recent advances in probability concentration theory (`Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_).
 
 Attribution
 ===========
-A BibTeX entry for <project-name> is:
+A BibTeX entry for ``darkmappy`` is:
 
 .. code-block:: 
 
-     @article{<project-name>, 
-        author = {Author~List},
-         title = {"A totally amazing name"},
-       journal = {ArXiv},
-        eprint = {arXiv:0000.00000},
-          year = {what year is it?!}
-     }
+    @article{price:2021:spherical,
+            title = {Sparse Bayesian mass mapping with uncertainties: hypothesis testing of structure},
+           author = {M.~A.~Price and J.~D.~McEwen and X.~Cai and T.~D.~Kitching and C.~G.~R.~Wallis and {LSST Dark Energy Science Collaboration}},
+          journal = {Monthly Notices of the Royal Astronomical Society},
+             year = 2021,
+            month = jul,
+           volume = {506},
+           number = {3},
+            pages = {3678--3690},
+              doi = {10.1093/mnras/stab1983},
+        publisher = {Oxford University Press}
+    }
+
+
+.. code-block:: 
+
+    @article{price:2021:hypothesis,
+            title = {Sparse Bayesian mass mapping with uncertainties: hypothesis testing of structure},
+           author = {M.~A.~Price and J.~D.~McEwen and X.~Cai and T.~D.~Kitching and C.~G.~R.~Wallis and {LSST Dark Energy Science Collaboration}},
+          journal = {Monthly Notices of the Royal Astronomical Society},
+             year = 2021,
+            month = jul,
+           volume = {506},
+           number = {3},
+            pages = {3678--3690},
+              doi = {10.1093/mnras/stab1983},
+        publisher = {Oxford University Press}
+    }
+
+If, at any point, the direction inverse functionality (i.e. spherical Kaiser-Squires) please cite 
+
+.. code-block::
+
+    @article{wallis:2021:massmappy,
+            title = {Mapping dark matter on the celestial sphere with weak gravitational lensing},
+           author = {C.~G.~R.~Wallis and M.~A.~Price and J.~D.~McEwen and T.~D.~Kitching and B.~Leistedt and A.~Plouviez},
+          journal = {Monthly Notices of the Royal Astronomical Society},
+             year = 2021,
+            month = Nov,
+           volume = {509},
+           number = {3},
+            pages = {4480-4497},
+              doi = {10.1093/mnras/stab3235},
+        publisher = {Oxford University Press}
+    }
+
+Finally, if uncertainty quantification techniques which rely on the approximate level-set threshold (derived by `Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_) are performed please consider citing relating articles appropriately.
 
 License
 =======
