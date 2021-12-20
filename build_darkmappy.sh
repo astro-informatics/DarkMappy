@@ -11,7 +11,7 @@ echo -ne 'Building Dependencies... ################   (100%)\r'
 echo -ne '\n'
 
 # Install Optimus-Primal (TODO: update PyPi and add to core reqs)
-git clone git@github.com:astro-informatics/Optimus-Primal.git .optimus-primal
+git clone https://github.com/astro-informatics/Optimus-Primal.git .optimus-primal
 cd .optimus-primal
 pip install .
 cd ..
