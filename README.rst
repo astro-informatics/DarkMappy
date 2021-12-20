@@ -35,17 +35,18 @@ A BibTeX entry for ``darkmappy`` is:
 .. code-block:: 
 
     @article{price:2021:spherical,
-            title = {Sparse Bayesian mass mapping with uncertainties: hypothesis testing of structure},
-           author = {M.~A.~Price and J.~D.~McEwen and X.~Cai and T.~D.~Kitching and C.~G.~R.~Wallis and {LSST Dark Energy Science Collaboration}},
+            title = {Sparse Bayesian mass-mapping with uncertainties: Full sky observations on the celestial sphere},
+           author = {M.~A.~Price and J.~D.~McEwen and L.~Pratley and T.~D.~Kitching},
           journal = {Monthly Notices of the Royal Astronomical Society},
              year = 2021,
-            month = jul,
-           volume = {506},
-           number = {3},
-            pages = {3678--3690},
-              doi = {10.1093/mnras/stab1983},
+            month = jan,
+           volume = {500},
+           number = {4},
+            pages = {5436-5452},
+              doi = {10.1093/mnras/staa3563},
         publisher = {Oxford University Press}
     }
+
 
 
 .. code-block:: 
