@@ -1,4 +1,4 @@
-|GitHub| |Build Status| |Docs| |CodeCov| |GPL license| |ArXiv 1| |ArXiv 2| |ArXiv 3|
+|GitHub| |Build Status| |Docs| |CodeCov| |GPL license| |ArXiv 1| |ArXiv 2|
 
 .. |GitHub| image:: https://img.shields.io/badge/GitHub-DarkMappy-brightgreen.svg?style=flat
     :target: https://github.com/astro-informatics/DarkMappy
@@ -14,8 +14,6 @@
     :target: https://arxiv.org/abs/2004.07855
 .. |ArXiv 2| image:: http://img.shields.io/badge/arXiv-1812.04014-orange.svg?style=flat
     :target: https://arxiv.org/abs/1812.04014
-.. |ArXiv 3| image:: http://img.shields.io/badge/arXiv-1812.04017-orange.svg?style=flat
-    :target: https://arxiv.org/abs/1812.04017
 
 DarkMappy: hybrid Bayesian inference of the dark universe
 =================================================================================================================
