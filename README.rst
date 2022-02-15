@@ -25,8 +25,54 @@ outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/arti
 
 BASIC USAGE
 ===========
+For planar reconstructions across the flat-sky the estimator can be run by the following, note that images must be square.
 
-Add basic details on usage 
+.. code-block:: python
+
+    import numpy as np
+    import darkmappy.estimators as dm
+
+    # LOAD YOUR DATA
+    data = np.load(<path_to_shear_data>)
+    ngal = np.load(<path_to_ngal_per_pixel_map>)
+    mask = np.load(<path_to_observation_mask>)
+
+    # BUILD THE ESTIMATOR 
+    dm_estimator = dm.DarkMappyPlane(
+               n = n,                   # Dimension of image
+            data = data,                # Observed shear field
+            mask = mask,                # Observational mask
+            ngal = ngal,                # Map of number density of observations per pixel
+             wav = [<select_wavelets>], # see https://tinyurl.com/mrxeat3t
+          levels = level,               # Wavelet levels
+     supersample = supersample)         # Super-resolution factor (typically <~2)
+
+    # RUN THE ESTIMATOR
+    convergence, diagnostics = dm_estimator.run_estimator()
+
+For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1 (i.e. McEwen-Wiaux sampling).
+
+.. code-block:: python
+
+    import numpy as np
+    import darkmappy.estimators as dm
+
+    # LOAD YOUR DATA
+    data = np.load(<path_to_shear_data>)
+    ngal = np.load(<path_to_ngal_per_pixel_map>)
+    mask = np.load(<path_to_observation_mask>)
+
+    # BUILD THE ESTIMATOR
+    dm_estimator = dm.DarkMapperSphere(
+               L = L,             # Angular Bandlimit    
+               N = N,             # Azimuthal Bandlimit (wavelet directionality)
+            data = data,          # Observational shear data
+            mask = mask,          # Observation mask
+            ngal = ngal)          # Map of number density of observations per pixel
+    
+    # RUN THE ESTIMATOR 
+    convergence, diagnostics = dm_estimator.run_estimator()
+
 
 ATTRIBUTION
 ===========
