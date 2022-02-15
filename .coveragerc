@@ -3,3 +3,5 @@ omit =
     *test_*
     *__init__*
     *solver*
+    *noise_simulations*
+    *validation*
