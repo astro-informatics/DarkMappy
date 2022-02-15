@@ -21,7 +21,7 @@
    <img src="./docs/assets/darkmappy_alt_no_text.png" align="center" height="100" width="100">
 
 ``darkmappy`` is a lightweight python package which implements the hybrid Bayesian dark-matter reconstruction techniques 
-outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation, and by construction support principled uncertainty quantification, by leveraging recent advances in probability concentration theory (`Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_).
+outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation which, by construction, support principled uncertainty quantification, see `Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_.
 
 INSTALLATION
 ============
