@@ -13,7 +13,7 @@
 .. image:: http://img.shields.io/badge/arXiv-1812.04014-orange.svg?style=flat
     :target: https://arxiv.org/abs/1812.04014
 
-|logo| DarkMappy: hybrid Bayesian inference of the dark universe
+|logo| DarkMappy: mapping the dark universe
 =================================================================================================================
 
 .. |logo| raw:: html
