@@ -72,7 +72,7 @@ For planar reconstructions across the flat-sky the estimator can be run by the f
     # RUN THE ESTIMATOR
     convergence, diagnostics = dm_estimator.run_estimator()
 
-For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1, see `Mcewen & Wiaux 2011 <https://ieeexplore.ieee.org/document/6006544>`_.
+For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1, see `McEwen & Wiaux 2011 <https://ieeexplore.ieee.org/document/6006544>`_.
 
 .. code-block:: python
 
