@@ -13,7 +13,7 @@
 .. image:: http://img.shields.io/badge/arXiv-1812.04014-orange.svg?style=flat
     :target: https://arxiv.org/abs/1812.04014
 
-|logo| DarkMappy: hybrid Bayesian inference of the dark universe
+|logo| DarkMappy: mapping the dark universe
 =================================================================================================================
 
 .. |logo| raw:: html
@@ -21,7 +21,7 @@
    <img src="./docs/assets/darkmappy_alt_no_text.png" align="center" height="100" width="100">
 
 ``darkmappy`` is a lightweight python package which implements the hybrid Bayesian dark-matter reconstruction techniques 
-outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation which, by construction, support principled uncertainty quantification, see `Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_.
+outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_. For comparison (and as initilaisiation for our iterations) the spherical Kaiser-Squires estimator of the convergence is implemented (see `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_). These techniques are based on *maximum a posteriori* estimation which, by construction, support principled uncertainty quantification, see `Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_. Further examples of such uncertainty quantification techniques developed for the weak lensing setting can be found in related articles `Price et al. 2019a <https://academic.oup.com/mnras/article/489/3/3236/5554769>`_ and `Price et al. 2019b <https://academic.oup.com/mnras/article/492/1/394/5672642>`_.
 
 INSTALLATION
 ============
@@ -72,7 +72,7 @@ For planar reconstructions across the flat-sky the estimator can be run by the f
     # RUN THE ESTIMATOR
     convergence, diagnostics = dm_estimator.run_estimator()
 
-For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1, see `Mcewen & Wiaux 2011 <https://ieeexplore.ieee.org/document/6006544>`_.
+For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1, see `McEwen & Wiaux 2011 <https://ieeexplore.ieee.org/document/6006544>`_.
 
 .. code-block:: python
 
