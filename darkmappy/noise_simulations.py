@@ -124,8 +124,8 @@ def Gaussian_noise_sphere(x, L, ngal, sigma_e, mask=None):
 
     for i in range(L):
         # Compute delta theta
-        theta_1 = ssht.index_to_theta(i, L)
-        theta_2 = ssht.index_to_theta(i + 1, L)
+        theta_1 = np.pi * float(2*i+1) / ( 2.0 * float(L) - 1.0 )
+        theta_2 = np.pi * float(2*i+3) / ( 2.0 * float(L) - 1.0 )
         # Compute pixel weighting factor (number density)
         c_term = 1e-5 + np.abs(np.cos(theta_1) - np.cos(theta_2))
         ngal_map[i, :] = delta * c_term * area_factor * ngal

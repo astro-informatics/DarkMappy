@@ -94,7 +94,7 @@ class DarkMappySphere:
             "update_iter": 20,
             "record_iters": False,
             "positivity": False,
-            "real": False,
+            "real": True,
             "constrained": constrained,
             "nu": self.nu,
             "viewer": viewer,

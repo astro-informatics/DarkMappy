@@ -157,16 +157,14 @@ Finally, if uncertainty quantification techniques which rely on the approximate 
 LICENSE
 =======
 
-``darkmappy`` is released under the GPL-3 license (see `LICENSE.txt <https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE.txt>`_), subject to 
-the non-commercial use condition (see `LICENSE_EXT.txt <https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE_EXT.txt>`_)
+``darkmappy`` is released under the GPL-3 license (see `LICENSE.txt <https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE.txt>`_).
 
 .. code-block::
 
      DarkMappy
      Copyright (C) 2022 Matthew A. Price, Jason D. McEwen & contributors
 
-     This program is released under the GPL-3 license (see LICENSE.txt), 
-     subject to a non-commercial use condition (see LICENSE_EXT.txt).
+     This program is released under the GPL-3 license (see LICENSE.txt).
 
      This program is distributed in the hope that it will be useful,
      but WITHOUT ANY WARRANTY; without even the implied warranty of

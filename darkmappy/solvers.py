@@ -51,14 +51,14 @@ class PrimalDual:
 
         if "nu" not in self.options:
             self.nu = opt.linear_operators.power_method(
-                phi, np.ones((phi.L, 2 * phi.L - 1))
+                phi, np.ones(phi.shape, dtype=complex)
             )[0]
         else:
             self.nu = self.options["nu"]
 
         if "mu" not in self.options:
             self.mu = opt.linear_operators.power_method(
-                psi, np.ones((phi.L, 2 * phi.L - 1))
+                psi, np.ones(phi.shape, dtype=complex)
             )[0]
         else:
             self.mu = self.options["mu"]

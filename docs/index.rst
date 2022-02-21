@@ -1,3 +1,6 @@
+DarkMappy: hybrid Bayesian inference of the dark universe
+=================================================================================================================
+
 |GitHub| |Build Status| |Docs| |CodeCov| |GPL license| |ArXiv 1| |ArXiv 2|
 
 .. |GitHub| image:: https://img.shields.io/badge/GitHub-DarkMappy-brightgreen.svg?style=flat
@@ -15,26 +18,63 @@
 .. |ArXiv 2| image:: http://img.shields.io/badge/arXiv-1812.04014-orange.svg?style=flat
     :target: https://arxiv.org/abs/1812.04014
 
-DarkMappy: hybrid Bayesian inference of the dark universe
-=================================================================================================================
-
 ``darkmappy`` is a lightweight python package which implements the hybrid Bayesian dark-matter reconstruction techniques 
-outlined on the plane in `Price 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation, and by construction support principled uncertainty quantification, by leveraging recent advances in probability concentration theory (`Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_).
+outlined on the plane in `Price et al. 2019 <https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513>`_, and on the celestial sphere in `Price et al. 2021 <https://academic.oup.com/mnras/article/500/4/5436/5986632>`_ and `Wallis et al. 2021 <https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933>`_. These techniques are based on *maximum a posteriori* estimation which, by construction, support principled uncertainty quantification, see `Pereyra 2016 <https://epubs.siam.org/doi/10.1137/16M1071249>`_.
 
 
 BASIC USAGE
-============
+===========
+For planar reconstructions across the flat-sky the estimator can be run by the following, note that images must be square.
 
-Add some basic usage instructions here.
+.. code-block:: python
+
+    import numpy as np
+    import darkmappy.estimators as dm
+
+    # LOAD YOUR DATA
+    data = np.load(<path_to_shear_data>)
+    ngal = np.load(<path_to_ngal_per_pixel_map>)
+    mask = np.load(<path_to_observation_mask>)
+
+    # BUILD THE ESTIMATOR 
+    dm_estimator = dm.DarkMappyPlane(
+               n = n,                   # Dimension of image
+            data = data,                # Observed shear field
+            mask = mask,                # Observational mask
+            ngal = ngal,                # Map of number density of observations per pixel
+             wav = [<select_wavelets>], # see https://tinyurl.com/mrxeat3t
+          levels = level,               # Wavelet levels
+     supersample = supersample)         # Super-resolution factor (typically <~2)
+
+    # RUN THE ESTIMATOR
+    convergence, diagnostics = dm_estimator.run_estimator()
+
+For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1, see `Mcewen & Wiaux 2011 <https://ieeexplore.ieee.org/document/6006544>`_.
+
+.. code-block:: python
+
+    import numpy as np
+    import darkmappy.estimators as dm
+
+    # LOAD YOUR DATA
+    data = np.load(<path_to_shear_data>)
+    ngal = np.load(<path_to_ngal_per_pixel_map>)
+    mask = np.load(<path_to_observation_mask>)
+
+    # BUILD THE ESTIMATOR
+    dm_estimator = dm.DarkMapperSphere(
+               L = L,             # Angular Bandlimit    
+               N = N,             # Azimuthal Bandlimit (wavelet directionality)
+            data = data,          # Observational shear data
+            mask = mask,          # Observation mask
+            ngal = ngal)          # Map of number density of observations per pixel
     
-DOCUMENTATION
-=============
-
-Link to the full documentation (when deployed).
-
+    # RUN THE ESTIMATOR 
+    convergence, diagnostics = dm_estimator.run_estimator()
+    
 CONTRIBUTORS
 ============
-Matthew A. Price, Jason D. McEwen & Contributors
+`Matthew A. Price <https://cosmomatt.github.io>`_, `Jason D. McEwen <http://www.jasonmcewen.org>`_ & Contributors
 
 ATTRIBUTION
 ===========
@@ -119,18 +159,19 @@ the non-commercial use condition (see `LICENSE_EXT.txt <https://github.com/astro
 
    user_guide/install
 
+.. 
+    .. toctree::
+        :hidden:
+        :maxdepth: 2
+        :caption: Background
 
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: Background
-
-   background/index
+        background/index
+..
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Interactive Tutorials
+   :caption: Interactive Tutorial
    
    tutorials/example_notebook.nblink
 
