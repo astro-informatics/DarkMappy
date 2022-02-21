@@ -95,6 +95,9 @@ For spherical reconstructions across the full-sky the estimator can be run by th
     # RUN THE ESTIMATOR 
     convergence, diagnostics = dm_estimator.run_estimator()
 
+CONTRIBUTORS
+============
+`Matthew A. Price <https://cosmomatt.github.io>`_, `Jason D. McEwen <http://www.jasonmcewen.org>`_ & Contributors
 
 ATTRIBUTION
 ===========

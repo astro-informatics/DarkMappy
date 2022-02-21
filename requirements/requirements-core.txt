@@ -6,3 +6,6 @@ pyyaml
 # Spherical operations 
 pys2let
 pyssht 
+
+# Proximal solvers
+optimusprimal

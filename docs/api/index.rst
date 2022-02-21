@@ -9,8 +9,26 @@ Automatically generated documentation for **darkmappy** APIs. All functionality 
 
 		.. include:: logs.rst
 	
-	.. tab:: some
+	.. tab:: Validation
 
-	.. tab:: other
+		.. include:: validation.rst
 
-	.. tab:: apis
+	.. tab:: Forward Models
+
+		.. include:: forward_models.rst
+
+	.. tab:: Simulator
+
+		.. include:: noise_simulations.rst
+
+	.. tab:: Solvers
+
+		.. include:: solvers.rst
+
+	.. tab:: Wavelets
+
+		.. include:: wavelet_wrappers.rst
+	
+	.. tab:: Estimator
+
+		.. include:: estimators.rst
