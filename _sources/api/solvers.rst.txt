@@ -1,0 +1,2 @@
+.. automodule:: darkmappy.solvers
+   :members: 

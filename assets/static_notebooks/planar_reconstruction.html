@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; darkmappy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom_tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../_static/dark_mode_js/default_light.js"></script>
+        <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html">
+            <img src="../../_static/darkmappy_alt_no_text.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interactive Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/example_notebook.html">Super-resolution Planar Mass-mapping</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">Namespaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">darkmappy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/assets/static_notebooks/planar_reconstruction.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<dl>
+<dt>{</dt><dd><dl>
+<dt>“cells”: [</dt><dd><dl>
+<dt>{</dt><dd><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“# Super-resolution Planar Mass-mappingn”,
+“This example instantiates the planar massmapping forward model with the <strong>super-resolution operator active</strong>. Moreover, this the example is also <strong>noise whitened</strong>; which is to say the pixel space map is multiplied by the inverse noise covariance matrix $\Sigma^{-1}$ – which is sufficiently approximated from the observation counts per pixel. Full details can be found in [Price et al. 2021](<a class="reference external" href="https://doi.org/10.1093/mnras/stab1983).n">https://doi.org/10.1093/mnras/stab1983).n</a>”,
+“n”,
+“In such an example the forward model (<em>measurement operator</em>) is straightforwardly given byn”,
+“n”,
+“$$n”,
+“\Phi = \mathsf{C} \; \mathsf{M} \; \mathsf{F}^{-1}_{\text{lr}} \; \mathsf{D} \; \mathsf{Z} \; \mathsf{F}_{\text{hr}}n”,
+“$$n”,
+“n”,
+“where $\mathsf{F}_{\text{hr}}$ is a high resolution (dimension $N^{\prime}$) fast Fourier transform, $\mathsf{Z} \in \mathbb{C}^{N \times N^{\prime}}$ is a Fourier space down-sampling which maps $\tilde{\kappa}^{\prime} \in \mathbb{C}^{N^{\prime}}$ on to $\tilde{\kappa} \in \mathbb{C}^{N}$, where tilde represents Fourier coefficients, $\mathsf{C}$ is multiplication by the inverse noise covariance matrix $\Sigma^{-1}$, $\mathsf{M}$ is a typical masking operator, and $\mathsf{D}$ is the planar forward model given byn”,
+“n”,
+“$$n”,
+“\mathsf{D}_{k_x,k_y} = \frac{k_x^2-k_y^2+2ik_xk_y}{k_x^2+k_y^2},n”,
+“$$n”,
+“n”,
+“as derived in [Kaiser &amp; Squires 1993](<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993ApJ...404..441K">https://ui.adsabs.harvard.edu/abs/1993ApJ…404..441K</a>). Correspondingly the adjoint measurement operator is straightforwardly given by n”,
+“n”,
+“$$n”,
+“\Phi^T = \mathsf{F}^{-1}_{\text{hr}} \; \mathsf{Z}^T \; \mathsf{D}^\star \; \mathsf{F}_{\text{lr}} \; \mathsf{M}^T \; \mathsf{C},n”,
+“$$n”,
+“n”,
+“where $\mathsf{F}^T$ is the inverse, the adjoint of unitary mapping $\mathsf{D}$ is the complex conjugate, the inverse covariance weighting $\mathsf{C}$ is trivially self-adjoint, $\mathsf{M}^T$ is gridding (the adjoint of masking or <em>degridding</em>), and the adjoint of downscaling kernel $\mathsf{Z}$ is given by zero-padding to dimension $N^{\prime}$.n”,
+“n”,
+“Note: in this example we assume all pixels have observation counts &gt; 0 and thus the masking operator $\mathsf{M} \Rightarrow \mathcal{I}$ and is therefore omitted for clarity.”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### First lets import some python modules”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“import numpy as npn”,
+“n”,
+“import darkmappy.estimators as dmn”,
+“import darkmappy.validation as statsn”,
+“import darkmappy.noise_simulations as noise_factory n”,
+“n”,
+“from matplotlib import pyplot as plt n”,
+“from scipy import ndimage, signal”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Load some simulation data  – here bolshoi N-body cluster simulationsn”,
+“Additionally we define a plotting function that simply takes two arguments: $x$ (the map to plot) and iteration (the iteration that is being plotted). This can be fed into the estimator setting parameters so it plots after an adjustable number of iterations. This way you can watch the solver reconstruct dark-matter in real-time!”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Import datan”,
+“kappa_true = np.load(&quot;data/Bolshoi_cluster_256.npy&quot;) + 0jn”,
+“n”,
+“# Define a plotting function for realtime viewing during optimisationn”,
+“def make_plot(x, iteration, show_stats=True):n”,
+”    plt.imshow(np.real(x), cmap=’magma’, vmax=0.6)n”,
+”    plt.axis(‘off’)n”,
+”    plt.show()n”,
+”    if show_stats:n”,
+”        snr, p_corr = stats.analyse(kappa_true, x)n”,
+”        print(&quot;Iteration: {} SNR: {} and Pearson Correlation: {}&quot;.format(iteration, snr, p_corr))n”,
+”    returnn”,
+“n”,
+“# Take a look at the ‘ground truth’n”,
+“make_plot(kappa_true, iteration=0, show_stats=False)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Now lets simulate some shear observationsn”,
+“This computes the size of a given pixel in your image given the specified resolution and the dimensionality of your pixelisation scheme. It then determines the number of galaxies that might reasonably be located within each pixel and adds Gaussian noise $n \sim \mathcal{N}(0,\Sigma)$ appropriately.n”,
+“n”,
+“Note: In cluster situations like this the number of observations per pixel is typically very low, and often shot limited. Hence, in a more realistic simulation example the noise distribution would be more accurately treated as Poissonian (which is also supported through [Optimus-Primal](<a class="reference external" href="https://github.com/Luke-Pratley/Optimus-Primal">https://github.com/Luke-Pratley/Optimus-Primal</a>) but is beyond the scope of this example).”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {</p>
+<blockquote>
+<div><p>“scrolled”: true</p>
+</div></blockquote>
+<p>},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“n_gal = 100         # Number of galaxy observations per square arcminuten”,
+“sidelength = 30     # side of observed square on the sky, in arcminutesn”,
+“supersample = 2     # By what factor would you like to attempt to super-resolve (even only!) n”,
+“n”,
+“# Compute the input dimension size and construct an appropriately sized maskn”,
+“n = int(kappa_true.shape[0]/supersample)n”,
+“n”,
+“# Generates a random realisation of i.i.d. Gaussian noise per pixeln”,
+“data, n_gal_map = noise_factory.simulate_shear_plane(n”,
+”             x = kappa_true,  n”,
+”    sidelength = sidelength, n”,
+”          ngal = n_gal, n”,
+”   supersample = supersample)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Instantiate the Darkmapper estimatorn”,
+“Most variables are self-explanatory however take note of the ‘wav’ and ‘levels’ parameters. These parameters correspond to the wavelet dictionary being used for regularisation, a full selection of planar wavelet dictionaries can be found in the [PyWavelets](<a class="reference external" href="https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html">https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html</a>) API documentation. n”,
+“n”,
+“Note: If you find your results aren’t producing visually reasonable results this could be due to your signal not being sparsely distributed when projected into your chosen dictionary. Try adjusting the dictionary to see if you can find a more naturally sparsifying dictionary.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {</p>
+<blockquote>
+<div><p>“scrolled”: false</p>
+</div></blockquote>
+<p>},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Instantiate the estimator class n”,
+“darkmapper_estimator = dm.DarkMappyPlane(n”,
+”                   n = n,                         # Dimensionality of problemn”,
+”                data = data,                      # Simulated shear datan”,
+”                ngal = n_gal_map,                 # Map of observation count per pixeln”,
+”              viewer = make_plot,                 # Custom plotting function for realtime viewingn”,
+”                 wav = [‘db1’, ‘db4’, ‘db6’],     # Selected wavelet dictionaries for sparsity averagingn”,
+”              levels = 6,                         # Number of wavelet levelsn”,
+”         supersample = supersample)               # Degree of supersampling (typically &lt;~2)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Run the estimator”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {</p>
+<blockquote>
+<div><p>“scrolled”: true</p>
+</div></blockquote>
+<p>},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Manually adjust the optional parametersn”,
+“darkmapper_estimator.options[‘tol’] = 1e-4           # Converges once the optimisation update falls below this valuen”,
+“darkmapper_estimator.options[‘positivity’] = False   # Includes a positivity constraint on the reconstructionn”,
+“darkmapper_estimator.options[‘real’] = False         # Includes a reality constraint on the reconstructionn”,
+“darkmapper_estimator.options[‘constrained’] = False  # Solve the unconstrained optimisation problem.n”,
+“darkmapper_estimator.options[‘update_iter’] = 200    # Iterations before printing solver diagnostics (and image)n”,
+“darkmapper_estimator.options[‘iter’] = 1000          # Maximum number of iterationsn”,
+“n”,
+“# Run the optimization and recover the MAP solution ‘sol’n”,
+“sol, diag = darkmapper_estimator.run_estimator(mu=7)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Compute the optimally smoothed Kaiser-Squires estimator to comparen”,
+“Here we just simply perform a gridsearch over the range of different smoothing scales and locate that smoothing scale that maximises the recovered SNR. In this way we are giving the existing Kaiser-Squires method as much of an advantage as is possible.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Use darkmappers inbuilt Kaiser-Squires estimator for simplicity.n”,
+“ks = darkmapper_estimator.phi.ks_estimate(data)n”,
+“n”,
+“# Gridsearch to find the ‘optimal’ smoothing for KS estimatorn”,
+“snr_max = 0n”,
+“smooth_max = 0n”,
+“for i in range(30):n”,
+”    smoothed_ks = ndimage.gaussian_filter(np.real(ks), float(i+1))n”,
+”    snr_iter = stats.snr(np.real(kappa_true), np.real(smoothed_ks))n”,
+”    if snr_iter &gt; snr_max:n”,
+”        snr_max = snr_itern”,
+”        smooth_max = float(i+1)n”,
+“n”,
+“optimal_ks = ndimage.gaussian_filter(np.real(ks), smooth_max)n”,
+“n”,
+“# Plot the optimally smoothed KS estimatorn”,
+“make_plot(optimal_ks, iteration=smooth_max)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Final plot for clarityn”,
+“Lets plot all the different reconstructions together and compare.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“fig, axs = plt.subplots(1, 4, figsize=[16, 5])n”,
+“n”,
+“titles = [&quot;Truth&quot;, &quot;KS&quot;, &quot;KS Optimal&quot;, &quot;DarkMappy&quot;]n”,
+“est = [np.real(kappa_true), np.real(ks), np.real(optimal_ks), np.real(sol)]n”,
+“n”,
+“for i in range(4):n”,
+”    axs[i].imshow(est[i], cmap=&quot;magma&quot;, vmax=0.6, vmin=np.min(est[0]))n”,
+”    axs[i].set_title(titles[i], fontsize=14)n”,
+”    if i &gt; 0:n”,
+”        axs[i].set_xlabel(&quot;SNR: {}dB,&quot;.format(round(stats.snr(est[0], est[i]),2)), fontsize=12)n”,
+“n”,
+”    plt.setp(axs[i].get_xticklabels(), visible=False)n”,
+”    plt.setp(axs[i].get_yticklabels(), visible=False)n”,
+“n”,
+“plt.show()”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Conclusionsn”,
+“n”,
+“Darkmappy displays significantly greater reconstruction fidelity in a realistic cluster reconstruction problem. There is however a caveat to this; as the super-resolution becomes more extreme the constraining power of Bayesian uncertainty quantification techniques becomes increasingly dilute due to the curse of dimensionality.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>],
+“metadata”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3 (ipykernel)”,
+“language”: “python”,
+“name”: “python3”</p>
+</dd>
+</dl>
+<p>},
+“language_info”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
+“version”: 3</p>
+</dd>
+</dl>
+<p>},
+“file_extension”: “.py”,
+“mimetype”: “text/x-python”,
+“name”: “python”,
+“nbconvert_exporter”: “python”,
+“pygments_lexer”: “ipython3”,
+“version”: “3.8.12”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+“nbformat”: 4,
+“nbformat_minor”: 4</p>
+</dd>
+</dl>
+<p>}</p>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matthew A. Price &amp; Jason D. McEwen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

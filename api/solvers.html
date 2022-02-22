@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; darkmappy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom_tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../_static/dark_mode_js/default_light.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/darkmappy_alt_no_text.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interactive Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/example_notebook.html">Super-resolution Planar Mass-mapping</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Namespaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">darkmappy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/solvers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<span class="target" id="module-darkmappy.solvers"></span><dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.solvers.</span></span><span class="sig-name descname"><span class="pre">PrimalDual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'constrained':</span> <span class="pre">True,</span> <span class="pre">'iter':</span> <span class="pre">5000,</span> <span class="pre">'nu':</span> <span class="pre">0,</span> <span class="pre">'positivity':</span> <span class="pre">False,</span> <span class="pre">'real':</span> <span class="pre">False,</span> <span class="pre">'record_iters':</span> <span class="pre">False,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'update_iter':</span> <span class="pre">50}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual" title="Permalink to this definition"></a></dt>
+<dd><p>Class which handles all primal dual optimisation paradigms.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'constrained':</span> <span class="pre">True,</span> <span class="pre">'iter':</span> <span class="pre">5000,</span> <span class="pre">'nu':</span> <span class="pre">0,</span> <span class="pre">'positivity':</span> <span class="pre">False,</span> <span class="pre">'real':</span> <span class="pre">False,</span> <span class="pre">'record_iters':</span> <span class="pre">False,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'update_iter':</span> <span class="pre">50}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct primal dual general class.</p>
+<p>Any additional details should be here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Measurement operator (weights for poisson noise)</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Redundant dictionary (wavelets etc.)</p></li>
+<li><p><strong>(</strong><strong>)</strong> – (?)</p></li>
+<li><p><strong>constrained</strong> (<em>bool</em>) – Constrained vs unconstrained problem</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Data vector contains NaN values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.l1_constrained_gaussian">
+<span class="sig-name descname"><span class="pre">l1_constrained_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warm_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.l1_constrained_gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Solve constrained l1 regularisation problem with Gaussian noise.</p>
+<p>Can be instantiated from warm_start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Data-set to be optimised over.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Initial solution of optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Noise-level present in optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Scaling for l1-norm threshold</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Datavector size is 0 (empty set).</p></li>
+<li><p><strong>ValueError</strong> – Datavector contains NaN values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian">
+<span class="sig-name descname"><span class="pre">l1_unconstrained_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warm_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Solve unconstrained l1 regularisation problem with Gaussian noise.</p>
+<p>Can be instantiated from warm_start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Data-set to be optimised over.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Initial solution of optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Noise-level present in optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Regularisation parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Datavector size is 0 (empty set).</p></li>
+<li><p><strong>ValueError</strong> – Datavector contains NaN values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian_jm">
+<span class="sig-name descname"><span class="pre">l1_unconstrained_gaussian_jm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warm_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian_jm" title="Permalink to this definition"></a></dt>
+<dd><p>Solve unconstrained l1 regularisation problem with Gaussian noise.</p>
+<p>Can be instantiated from warm_start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Data-set to be optimised over.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Initial solution of optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Noise-level present in optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Regularisation parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Datavector size is 0 (empty set).</p></li>
+<li><p><strong>ValueError</strong> – Datavector contains NaN values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matthew A. Price &amp; Jason D. McEwen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

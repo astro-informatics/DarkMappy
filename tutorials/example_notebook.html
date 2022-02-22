@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super-resolution Planar Mass-mapping &mdash; darkmappy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom_tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script src="../_static/dark_mode_js/default_light.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Namespaces" href="../api/index.html" />
+    <link rel="prev" title="Installation" href="../user_guide/install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/darkmappy_alt_no_text.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interactive Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Super-resolution Planar Mass-mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#First-lets-import-some-python-modules">First lets import some python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Load-some-simulation-data-–-here-bolshoi-N-body-cluster-simulations">Load some simulation data – here bolshoi N-body cluster simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Now-lets-simulate-some-shear-observations">Now lets simulate some shear observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Instantiate-the-Darkmapper-estimator">Instantiate the Darkmapper estimator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Run-the-estimator">Run the estimator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Compute-the-optimally-smoothed-Kaiser-Squires-estimator-to-compare">Compute the optimally smoothed Kaiser-Squires estimator to compare</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Final-plot-for-clarity">Final plot for clarity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Conclusions">Conclusions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Namespaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">darkmappy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Super-resolution Planar Mass-mapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/example_notebook.nblink.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Super-resolution-Planar-Mass-mapping">
+<h1>Super-resolution Planar Mass-mapping<a class="headerlink" href="#Super-resolution-Planar-Mass-mapping" title="Permalink to this headline"></a></h1>
+<p>This example instantiates the planar massmapping forward model with the <strong>super-resolution operator active</strong>. Moreover, this the example is also <strong>noise whitened</strong>; which is to say the pixel space map is multiplied by the inverse noise covariance matrix <span class="math notranslate nohighlight">\(\Sigma^{-1}\)</span> – which is sufficiently approximated from the observation counts per pixel. Full details can be found in <a class="reference external" href="https://doi.org/10.1093/mnras/stab1983">Price et al. 2021</a>.</p>
+<p>In such an example the forward model (<em>measurement operator</em>) is straightforwardly given by</p>
+<div class="math notranslate nohighlight">
+\[\Phi = \mathsf{C} \; \mathsf{M} \; \mathsf{F}^{-1}_{\text{lr}} \; \mathsf{D} \; \mathsf{Z} \; \mathsf{F}_{\text{hr}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathsf{F}_{\text{hr}}\)</span> is a high resolution (dimension <span class="math notranslate nohighlight">\(N^{\prime}\)</span>) fast Fourier transform, <span class="math notranslate nohighlight">\(\mathsf{Z} \in \mathbb{C}^{N \times N^{\prime}}\)</span> is a Fourier space down-sampling which maps <span class="math notranslate nohighlight">\(\tilde{\kappa}^{\prime} \in \mathbb{C}^{N^{\prime}}\)</span> on to <span class="math notranslate nohighlight">\(\tilde{\kappa} \in \mathbb{C}^{N}\)</span>, where tilde represents Fourier coefficients, <span class="math notranslate nohighlight">\(\mathsf{C}\)</span> is multiplication by the inverse noise covariance matrix <span class="math notranslate nohighlight">\(\Sigma^{-1}\)</span>, <span class="math notranslate nohighlight">\(\mathsf{M}\)</span> is a typical
+masking operator, and <span class="math notranslate nohighlight">\(\mathsf{D}\)</span> is the planar forward model given by</p>
+<div class="math notranslate nohighlight">
+\[\mathsf{D}_{k_x,k_y} = \frac{k_x^2-k_y^2+2ik_xk_y}{k_x^2+k_y^2},\]</div>
+<p>as derived in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993ApJ...404..441K">Kaiser &amp; Squires 1993</a>. Correspondingly the adjoint measurement operator is straightforwardly given by</p>
+<div class="math notranslate nohighlight">
+\[\Phi^T = \mathsf{F}^{-1}_{\text{hr}} \; \mathsf{Z}^T \; \mathsf{D}^\star \; \mathsf{F}_{\text{lr}} \; \mathsf{M}^T \; \mathsf{C},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathsf{F}^T\)</span> is the inverse, the adjoint of unitary mapping <span class="math notranslate nohighlight">\(\mathsf{D}\)</span> is the complex conjugate, the inverse covariance weighting <span class="math notranslate nohighlight">\(\mathsf{C}\)</span> is trivially self-adjoint, <span class="math notranslate nohighlight">\(\mathsf{M}^T\)</span> is gridding (the adjoint of masking or <em>degridding</em>), and the adjoint of downscaling kernel <span class="math notranslate nohighlight">\(\mathsf{Z}\)</span> is given by zero-padding to dimension <span class="math notranslate nohighlight">\(N^{\prime}\)</span>.</p>
+<p>Note: in this example we assume all pixels have observation counts &gt; 0 and thus the masking operator <span class="math notranslate nohighlight">\(\mathsf{M} \Rightarrow \mathcal{I}\)</span> and is therefore omitted for clarity.</p>
+<div class="section" id="First-lets-import-some-python-modules">
+<h2>First lets import some python modules<a class="headerlink" href="#First-lets-import-some-python-modules" title="Permalink to this headline"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">darkmappy.estimators</span> <span class="k">as</span> <span class="nn">dm</span>
+<span class="kn">import</span> <span class="nn">darkmappy.validation</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">darkmappy.noise_simulations</span> <span class="k">as</span> <span class="nn">noise_factory</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span><span class="p">,</span> <span class="n">signal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Load-some-simulation-data-–-here-bolshoi-N-body-cluster-simulations">
+<h2>Load some simulation data – here bolshoi N-body cluster simulations<a class="headerlink" href="#Load-some-simulation-data-–-here-bolshoi-N-body-cluster-simulations" title="Permalink to this headline"></a></h2>
+<p>Additionally we define a plotting function that simply takes two arguments: <span class="math notranslate nohighlight">\(x\)</span> (the map to plot) and iteration (the iteration that is being plotted). This can be fed into the estimator setting parameters so it plots after an adjustable number of iterations. This way you can watch the solver reconstruct dark-matter in real-time!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import data</span>
+<span class="n">kappa_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;data/Bolshoi_cluster_256.npy&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
+
+<span class="c1"># Define a plotting function for realtime viewing during optimisation</span>
+<span class="k">def</span> <span class="nf">make_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">iteration</span><span class="p">,</span> <span class="n">show_stats</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">show_stats</span><span class="p">:</span>
+        <span class="n">snr</span><span class="p">,</span> <span class="n">p_corr</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">analyse</span><span class="p">(</span><span class="n">kappa_true</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteration: </span><span class="si">{}</span><span class="s2"> SNR: </span><span class="si">{}</span><span class="s2"> and Pearson Correlation: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iteration</span><span class="p">,</span> <span class="n">snr</span><span class="p">,</span> <span class="n">p_corr</span><span class="p">))</span>
+    <span class="k">return</span>
+
+<span class="c1"># Take a look at the &#39;ground truth&#39;</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="n">kappa_true</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">show_stats</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Now-lets-simulate-some-shear-observations">
+<h2>Now lets simulate some shear observations<a class="headerlink" href="#Now-lets-simulate-some-shear-observations" title="Permalink to this headline"></a></h2>
+<p>This computes the size of a given pixel in your image given the specified resolution and the dimensionality of your pixelisation scheme. It then determines the number of galaxies that might reasonably be located within each pixel and adds Gaussian noise <span class="math notranslate nohighlight">\(n \sim \mathcal{N}(0,\Sigma)\)</span> appropriately.</p>
+<p>Note: In cluster situations like this the number of observations per pixel is typically very low, and often shot limited. Hence, in a more realistic simulation example the noise distribution would be more accurately treated as Poissonian (which is also supported through <a class="reference external" href="https://github.com/Luke-Pratley/Optimus-Primal">Optimus-Primal</a> but is beyond the scope of this example).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_gal</span> <span class="o">=</span> <span class="mi">100</span>         <span class="c1"># Number of galaxy observations per square arcminute</span>
+<span class="n">sidelength</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># side of observed square on the sky, in arcminutes</span>
+<span class="n">supersample</span> <span class="o">=</span> <span class="mi">2</span>     <span class="c1"># By what factor would you like to attempt to super-resolve (even only!)</span>
+
+<span class="c1"># Compute the input dimension size and construct an appropriately sized mask</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kappa_true</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">supersample</span><span class="p">)</span>
+
+<span class="c1"># Generates a random realisation of i.i.d. Gaussian noise per pixel</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">n_gal_map</span> <span class="o">=</span> <span class="n">noise_factory</span><span class="o">.</span><span class="n">simulate_shear_plane</span><span class="p">(</span>
+             <span class="n">x</span> <span class="o">=</span> <span class="n">kappa_true</span><span class="p">,</span>
+    <span class="n">sidelength</span> <span class="o">=</span> <span class="n">sidelength</span><span class="p">,</span>
+          <span class="n">ngal</span> <span class="o">=</span> <span class="n">n_gal</span><span class="p">,</span>
+   <span class="n">supersample</span> <span class="o">=</span> <span class="n">supersample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Instantiate-the-Darkmapper-estimator">
+<h2>Instantiate the Darkmapper estimator<a class="headerlink" href="#Instantiate-the-Darkmapper-estimator" title="Permalink to this headline"></a></h2>
+<p>Most variables are self-explanatory however take note of the ‘wav’ and ‘levels’ parameters. These parameters correspond to the wavelet dictionary being used for regularisation, a full selection of planar wavelet dictionaries can be found in the <a class="reference external" href="https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html">PyWavelets</a> API documentation.</p>
+<p>Note: If you find your results aren’t producing visually reasonable results this could be due to your signal not being sparsely distributed when projected into your chosen dictionary. Try adjusting the dictionary to see if you can find a more naturally sparsifying dictionary.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate the estimator class</span>
+<span class="n">darkmapper_estimator</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">DarkMappyPlane</span><span class="p">(</span>
+                   <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>                         <span class="c1"># Dimensionality of problem</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>                      <span class="c1"># Simulated shear data</span>
+                <span class="n">ngal</span> <span class="o">=</span> <span class="n">n_gal_map</span><span class="p">,</span>                 <span class="c1"># Map of observation count per pixel</span>
+              <span class="n">viewer</span> <span class="o">=</span> <span class="n">make_plot</span><span class="p">,</span>                 <span class="c1"># Custom plotting function for realtime viewing</span>
+                 <span class="n">wav</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;db1&#39;</span><span class="p">,</span> <span class="s1">&#39;db4&#39;</span><span class="p">,</span> <span class="s1">&#39;db6&#39;</span><span class="p">],</span>     <span class="c1"># Selected wavelet dictionaries for sparsity averaging</span>
+              <span class="n">levels</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>                         <span class="c1"># Number of wavelet levels</span>
+         <span class="n">supersample</span> <span class="o">=</span> <span class="n">supersample</span><span class="p">)</span>               <span class="c1"># Degree of supersampling (typically &lt;~2)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Run-the-estimator">
+<h3>Run the estimator<a class="headerlink" href="#Run-the-estimator" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manually adjust the optional parameters</span>
+<span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;tol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-4</span>           <span class="c1"># Converges once the optimisation update falls below this value</span>
+<span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;positivity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>   <span class="c1"># Includes a positivity constraint on the reconstruction</span>
+<span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>         <span class="c1"># Includes a reality constraint on the reconstruction</span>
+<span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;constrained&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Solve the unconstrained optimisation problem.</span>
+<span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;update_iter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>    <span class="c1"># Iterations before printing solver diagnostics (and image)</span>
+<span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;iter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>          <span class="c1"># Maximum number of iterations</span>
+
+<span class="c1"># Run the optimization and recover the MAP solution &#39;sol&#39;</span>
+<span class="n">sol</span><span class="p">,</span> <span class="n">diag</span> <span class="o">=</span> <span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">run_estimator</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Compute-the-optimally-smoothed-Kaiser-Squires-estimator-to-compare">
+<h2>Compute the optimally smoothed Kaiser-Squires estimator to compare<a class="headerlink" href="#Compute-the-optimally-smoothed-Kaiser-Squires-estimator-to-compare" title="Permalink to this headline"></a></h2>
+<p>Here we just simply perform a gridsearch over the range of different smoothing scales and locate that smoothing scale that maximises the recovered SNR. In this way we are giving the existing Kaiser-Squires method as much of an advantage as is possible.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use darkmappers inbuilt Kaiser-Squires estimator for simplicity.</span>
+<span class="n">ks</span> <span class="o">=</span> <span class="n">darkmapper_estimator</span><span class="o">.</span><span class="n">phi</span><span class="o">.</span><span class="n">ks_estimate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Gridsearch to find the &#39;optimal&#39; smoothing for KS estimator</span>
+<span class="n">snr_max</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">smooth_max</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">smoothed_ks</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ks</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">snr_iter</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">snr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">kappa_true</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">smoothed_ks</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">snr_iter</span> <span class="o">&gt;</span> <span class="n">snr_max</span><span class="p">:</span>
+        <span class="n">snr_max</span> <span class="o">=</span> <span class="n">snr_iter</span>
+        <span class="n">smooth_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">optimal_ks</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ks</span><span class="p">),</span> <span class="n">smooth_max</span><span class="p">)</span>
+
+<span class="c1"># Plot the optimally smoothed KS estimator</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="n">optimal_ks</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">smooth_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Final-plot-for-clarity">
+<h3>Final plot for clarity<a class="headerlink" href="#Final-plot-for-clarity" title="Permalink to this headline"></a></h3>
+<p>Lets plot all the different reconstructions together and compare.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Truth&quot;</span><span class="p">,</span> <span class="s2">&quot;KS&quot;</span><span class="p">,</span> <span class="s2">&quot;KS Optimal&quot;</span><span class="p">,</span> <span class="s2">&quot;DarkMappy&quot;</span><span class="p">]</span>
+<span class="n">est</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">kappa_true</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ks</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">optimal_ks</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">sol</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;magma&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;SNR: </span><span class="si">{}</span><span class="s2">dB,&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">snr</span><span class="p">(</span><span class="n">est</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">est</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="mi">2</span><span class="p">)),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Conclusions">
+<h2>Conclusions<a class="headerlink" href="#Conclusions" title="Permalink to this headline"></a></h2>
+<p>Darkmappy displays significantly greater reconstruction fidelity in a realistic cluster reconstruction problem. There is however a caveat to this; as the super-resolution becomes more extreme the constraining power of Bayesian uncertainty quantification techniques becomes increasingly dilute due to the curse of dimensionality.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user_guide/install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/index.html" class="btn btn-neutral float-right" title="Namespaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matthew A. Price &amp; Jason D. McEwen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

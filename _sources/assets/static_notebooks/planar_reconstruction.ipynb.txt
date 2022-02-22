@@ -1,0 +1,271 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Super-resolution Planar Mass-mapping\n",
+    "This example instantiates the planar massmapping forward model with the **super-resolution operator active**. Moreover, this the example is also **noise whitened**; which is to say the pixel space map is multiplied by the inverse noise covariance matrix $\\Sigma^{-1}$ -- which is sufficiently approximated from the observation counts per pixel. Full details can be found in [Price et al. 2021](https://doi.org/10.1093/mnras/stab1983).\n",
+    "\n",
+    "In such an example the forward model (*measurement operator*) is straightforwardly given by\n",
+    "\n",
+    "$$\n",
+    "\\Phi = \\mathsf{C} \\; \\mathsf{M} \\; \\mathsf{F}^{-1}_{\\text{lr}} \\; \\mathsf{D} \\; \\mathsf{Z} \\; \\mathsf{F}_{\\text{hr}}\n",
+    "$$\n",
+    "\n",
+    "where $\\mathsf{F}_{\\text{hr}}$ is a high resolution (dimension $N^{\\prime}$) fast Fourier transform, $\\mathsf{Z} \\in \\mathbb{C}^{N \\times N^{\\prime}}$ is a Fourier space down-sampling which maps $\\tilde{\\kappa}^{\\prime} \\in \\mathbb{C}^{N^{\\prime}}$ on to $\\tilde{\\kappa} \\in \\mathbb{C}^{N}$, where tilde represents Fourier coefficients, $\\mathsf{C}$ is multiplication by the inverse noise covariance matrix $\\Sigma^{-1}$, $\\mathsf{M}$ is a typical masking operator, and $\\mathsf{D}$ is the planar forward model given by\n",
+    "\n",
+    "$$\n",
+    "\\mathsf{D}_{k_x,k_y} = \\frac{k_x^2-k_y^2+2ik_xk_y}{k_x^2+k_y^2},\n",
+    "$$\n",
+    "\n",
+    "as derived in [Kaiser & Squires 1993](https://ui.adsabs.harvard.edu/abs/1993ApJ...404..441K). Correspondingly the adjoint measurement operator is straightforwardly given by \n",
+    "\n",
+    "$$\n",
+    "\\Phi^T = \\mathsf{F}^{-1}_{\\text{hr}} \\; \\mathsf{Z}^T \\; \\mathsf{D}^\\star \\; \\mathsf{F}_{\\text{lr}} \\; \\mathsf{M}^T \\; \\mathsf{C},\n",
+    "$$\n",
+    "\n",
+    "where $\\mathsf{F}^T$ is the inverse, the adjoint of unitary mapping $\\mathsf{D}$ is the complex conjugate, the inverse covariance weighting $\\mathsf{C}$ is trivially self-adjoint, $\\mathsf{M}^T$ is gridding (the adjoint of masking or *degridding*), and the adjoint of downscaling kernel $\\mathsf{Z}$ is given by zero-padding to dimension $N^{\\prime}$.\n",
+    "\n",
+    "Note: in this example we assume all pixels have observation counts > 0 and thus the masking operator $\\mathsf{M} \\Rightarrow \\mathcal{I}$ and is therefore omitted for clarity."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### First lets import some python modules"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "import darkmappy.estimators as dm\n",
+    "import darkmappy.validation as stats\n",
+    "import darkmappy.noise_simulations as noise_factory \n",
+    "\n",
+    "from matplotlib import pyplot as plt \n",
+    "from scipy import ndimage, signal"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Load some simulation data  -- here bolshoi N-body cluster simulations\n",
+    "Additionally we define a plotting function that simply takes two arguments: $x$ (the map to plot) and iteration (the iteration that is being plotted). This can be fed into the estimator setting parameters so it plots after an adjustable number of iterations. This way you can watch the solver reconstruct dark-matter in real-time!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import data\n",
+    "kappa_true = np.load(\"data/Bolshoi_cluster_256.npy\") + 0j\n",
+    "\n",
+    "# Define a plotting function for realtime viewing during optimisation\n",
+    "def make_plot(x, iteration, show_stats=True):\n",
+    "    plt.imshow(np.real(x), cmap='magma', vmax=0.6)\n",
+    "    plt.axis('off')\n",
+    "    plt.show()\n",
+    "    if show_stats:\n",
+    "        snr, p_corr = stats.analyse(kappa_true, x)\n",
+    "        print(\"Iteration: {} SNR: {} and Pearson Correlation: {}\".format(iteration, snr, p_corr))\n",
+    "    return\n",
+    "\n",
+    "# Take a look at the 'ground truth'\n",
+    "make_plot(kappa_true, iteration=0, show_stats=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Now lets simulate some shear observations\n",
+    "This computes the size of a given pixel in your image given the specified resolution and the dimensionality of your pixelisation scheme. It then determines the number of galaxies that might reasonably be located within each pixel and adds Gaussian noise $n \\sim \\mathcal{N}(0,\\Sigma)$ appropriately.\n",
+    "\n",
+    "Note: In cluster situations like this the number of observations per pixel is typically very low, and often shot limited. Hence, in a more realistic simulation example the noise distribution would be more accurately treated as Poissonian (which is also supported through [Optimus-Primal](https://github.com/Luke-Pratley/Optimus-Primal) but is beyond the scope of this example)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "n_gal = 100         # Number of galaxy observations per square arcminute\n",
+    "sidelength = 30     # side of observed square on the sky, in arcminutes\n",
+    "supersample = 2     # By what factor would you like to attempt to super-resolve (even only!) \n",
+    "\n",
+    "# Compute the input dimension size and construct an appropriately sized mask\n",
+    "n = int(kappa_true.shape[0]/supersample)\n",
+    "\n",
+    "# Generates a random realisation of i.i.d. Gaussian noise per pixel\n",
+    "data, n_gal_map = noise_factory.simulate_shear_plane(\n",
+    "             x = kappa_true,  \n",
+    "    sidelength = sidelength, \n",
+    "          ngal = n_gal, \n",
+    "   supersample = supersample)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Instantiate the Darkmapper estimator\n",
+    "Most variables are self-explanatory however take note of the 'wav' and 'levels' parameters. These parameters correspond to the wavelet dictionary being used for regularisation, a full selection of planar wavelet dictionaries can be found in the [PyWavelets](https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html) API documentation. \n",
+    "\n",
+    "Note: If you find your results aren't producing visually reasonable results this could be due to your signal not being sparsely distributed when projected into your chosen dictionary. Try adjusting the dictionary to see if you can find a more naturally sparsifying dictionary."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [],
+   "source": [
+    "# Instantiate the estimator class \n",
+    "darkmapper_estimator = dm.DarkMappyPlane(\n",
+    "                   n = n,                         # Dimensionality of problem\n",
+    "                data = data,                      # Simulated shear data\n",
+    "                ngal = n_gal_map,                 # Map of observation count per pixel\n",
+    "              viewer = make_plot,                 # Custom plotting function for realtime viewing\n",
+    "                 wav = ['db1', 'db4', 'db6'],     # Selected wavelet dictionaries for sparsity averaging\n",
+    "              levels = 6,                         # Number of wavelet levels\n",
+    "         supersample = supersample)               # Degree of supersampling (typically <~2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Run the estimator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "# Manually adjust the optional parameters\n",
+    "darkmapper_estimator.options['tol'] = 1e-4           # Converges once the optimisation update falls below this value\n",
+    "darkmapper_estimator.options['positivity'] = False   # Includes a positivity constraint on the reconstruction\n",
+    "darkmapper_estimator.options['real'] = False         # Includes a reality constraint on the reconstruction\n",
+    "darkmapper_estimator.options['constrained'] = False  # Solve the unconstrained optimisation problem.\n",
+    "darkmapper_estimator.options['update_iter'] = 200    # Iterations before printing solver diagnostics (and image)\n",
+    "darkmapper_estimator.options['iter'] = 1000          # Maximum number of iterations\n",
+    "\n",
+    "# Run the optimization and recover the MAP solution 'sol'\n",
+    "sol, diag = darkmapper_estimator.run_estimator(mu=7)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Compute the optimally smoothed Kaiser-Squires estimator to compare\n",
+    "Here we just simply perform a gridsearch over the range of different smoothing scales and locate that smoothing scale that maximises the recovered SNR. In this way we are giving the existing Kaiser-Squires method as much of an advantage as is possible."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Use darkmappers inbuilt Kaiser-Squires estimator for simplicity.\n",
+    "ks = darkmapper_estimator.phi.ks_estimate(data)\n",
+    "\n",
+    "# Gridsearch to find the 'optimal' smoothing for KS estimator\n",
+    "snr_max = 0\n",
+    "smooth_max = 0\n",
+    "for i in range(30):\n",
+    "    smoothed_ks = ndimage.gaussian_filter(np.real(ks), float(i+1))\n",
+    "    snr_iter = stats.snr(np.real(kappa_true), np.real(smoothed_ks))\n",
+    "    if snr_iter > snr_max:\n",
+    "        snr_max = snr_iter\n",
+    "        smooth_max = float(i+1)\n",
+    "\n",
+    "optimal_ks = ndimage.gaussian_filter(np.real(ks), smooth_max)\n",
+    "\n",
+    "# Plot the optimally smoothed KS estimator\n",
+    "make_plot(optimal_ks, iteration=smooth_max)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Final plot for clarity\n",
+    "Lets plot all the different reconstructions together and compare."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fig, axs = plt.subplots(1, 4, figsize=[16, 5])\n",
+    "\n",
+    "titles = [\"Truth\", \"KS\", \"KS Optimal\", \"DarkMappy\"]\n",
+    "est = [np.real(kappa_true), np.real(ks), np.real(optimal_ks), np.real(sol)]\n",
+    "\n",
+    "for i in range(4):\n",
+    "    axs[i].imshow(est[i], cmap=\"magma\", vmax=0.6, vmin=np.min(est[0]))\n",
+    "    axs[i].set_title(titles[i], fontsize=14)\n",
+    "    if i > 0:\n",
+    "        axs[i].set_xlabel(\"SNR: {}dB,\".format(round(stats.snr(est[0], est[i]),2)), fontsize=12)\n",
+    "\n",
+    "    plt.setp(axs[i].get_xticklabels(), visible=False)\n",
+    "    plt.setp(axs[i].get_yticklabels(), visible=False)\n",
+    "\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Conclusions\n",
+    "\n",
+    "Darkmappy displays significantly greater reconstruction fidelity in a realistic cluster reconstruction problem. There is however a caveat to this; as the super-resolution becomes more extreme the constraining power of Bayesian uncertainty quantification techniques becomes increasingly dilute due to the curse of dimensionality."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

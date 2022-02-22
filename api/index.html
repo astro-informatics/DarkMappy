@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namespaces &mdash; darkmappy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom_tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/tabs.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../_static/dark_mode_js/default_light.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Super-resolution Planar Mass-mapping" href="../tutorials/example_notebook.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/darkmappy_alt_no_text.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interactive Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/example_notebook.html">Super-resolution Planar Mass-mapping</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Namespaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">darkmappy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Namespaces</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="namespaces">
+<h1>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline"></a></h1>
+<p>Automatically generated documentation for <strong>darkmappy</strong> APIs. All functionality is accessible through a pip installation of the <strong>darkmappy</strong> package.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Logs</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Validation</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Forward Models</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Simulator</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Solvers</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">Wavelets</button><button aria-controls="panel-0-0-6" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-6" name="0-6" role="tab" tabindex="-1">Estimator</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.logs"></span><dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.logs.critical_log">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.logs.</span></span><span class="sig-name descname"><span class="pre">critical_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.logs.critical_log" title="Permalink to this definition"></a></dt>
+<dd><p>Log a critical message (e.g. core code failures etc).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – Message to log.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.logs.debug_log">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.logs.</span></span><span class="sig-name descname"><span class="pre">debug_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.logs.debug_log" title="Permalink to this definition"></a></dt>
+<dd><p>Log a debug message (e.g. for background logs to assist debugging).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – Message to log.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.logs.info_log">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.logs.</span></span><span class="sig-name descname"><span class="pre">info_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.logs.info_log" title="Permalink to this definition"></a></dt>
+<dd><p>Log an information message (e.g. evidence value printing, run completion
+etc).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – Message to log.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.logs.setup_logging">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.logs.</span></span><span class="sig-name descname"><span class="pre">setup_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_yaml_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.logs.setup_logging" title="Permalink to this definition"></a></dt>
+<dd><p>initialise and configure logging.</p>
+<p>Should be called at the beginning of code to initialise and configure the
+desired logging level. Logging levels can be ints in [0,50] where 10 is
+debug logging and 50 is critical logging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>custom_yaml_path</strong> (<em>string</em>) – Complete pathname of desired yaml logging
+configuration. If empty will provide default logging config.</p></li>
+<li><p><strong>default_level</strong> (<em>int</em>) – Logging level at which to configure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if logging.yaml is not in ./logs/ directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.logs.warning_log">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.logs.</span></span><span class="sig-name descname"><span class="pre">warning_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.logs.warning_log" title="Permalink to this definition"></a></dt>
+<dd><p>Log a warning (e.g. for internal code warnings such as large dynamic
+ranges).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – Warning to log.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.validation"></span><dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.validation.analyse">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.validation.</span></span><span class="sig-name descname"><span class="pre">analyse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.validation.analyse" title="Permalink to this definition"></a></dt>
+<dd><p>Computes statistics on recovered result</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>complex array</em>) – True map</p></li>
+<li><p><strong>y</strong> (<em>complex array</em>) – Estimated map</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.validation.p_correlation">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.validation.</span></span><span class="sig-name descname"><span class="pre">p_correlation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.validation.p_correlation" title="Permalink to this definition"></a></dt>
+<dd><p>Computes pearson correlation coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – True map</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – Estimated map</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if x and y not of the same rank and size</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.validation.snr">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.validation.</span></span><span class="sig-name descname"><span class="pre">snr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.validation.snr" title="Permalink to this definition"></a></dt>
+<dd><p>Computes signal to noise ratio in dB</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – True map</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – Estimated map</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if x and y not of the same rank and size</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.forward_models"></span><dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.forward_models.</span></span><span class="sig-name descname"><span class="pre">PlanarForwardModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel" title="Permalink to this definition"></a></dt>
+<dd><p>Weak Gravitational Lensing planar Forward model</p>
+<p>Supports additional complexity which should simply
+be appended to the dir_op and adj_op objects
+appropriately (e.g. psf degridding step, psf
+deconvolution etc.)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct class to hold the spherical forward and
+forward adjoint operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Pixel count along each axis (square images)</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Map of realspace masking.</p></li>
+<li><p><strong>ngal</strong> (<em>int array</em>) – Map of galaxy observation count.</p></li>
+<li><p><strong>supersample</strong> (<em>float</em>) – Degree of supersampling.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – intrinsic ellipticity dispersion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if map is of size 0.</p></li>
+<li><p><strong>ValueError</strong> – Raised if mask is the wrong shape.</p></li>
+<li><p><strong>ValueError</strong> – Raised if ngal is the wrong shape.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if L is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.adj_op">
+<span class="sig-name descname"><span class="pre">adj_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.adj_op" title="Permalink to this definition"></a></dt>
+<dd><p>Planar weak lensing adjoint measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (cov weighted)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.compute_fourier_kernels">
+<span class="sig-name descname"><span class="pre">compute_fourier_kernels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.compute_fourier_kernels" title="Permalink to this definition"></a></dt>
+<dd><p>Computes fourier space kernel mappings.</p>
+<p>Returns as a tuple {forward, inverse}.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.cov_weight">
+<span class="sig-name descname"><span class="pre">cov_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.cov_weight" title="Permalink to this definition"></a></dt>
+<dd><p>Applies covariance weighting to observations.</p>
+<p>Assumes no intrinsic correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – pixel space map to be inverse covariance weighted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.dir_op">
+<span class="sig-name descname"><span class="pre">dir_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.dir_op" title="Permalink to this definition"></a></dt>
+<dd><p>Planar weak lensing measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kappa</strong> (<em>complex array</em>) – Convergence signal</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.ks_estimate">
+<span class="sig-name descname"><span class="pre">ks_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.ks_estimate" title="Permalink to this definition"></a></dt>
+<dd><p>Computes Kaiser-Squires estimator (as a first estimate)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (patch)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.mask_adjoint">
+<span class="sig-name descname"><span class="pre">mask_adjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.mask_adjoint" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask adjoint to observations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex array</em>) – Set of observations.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if signal is nan</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.mask_forward">
+<span class="sig-name descname"><span class="pre">mask_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.mask_forward" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask to a field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>complex array</em>) – Realspace Signal</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if signal is nan</p></li>
+<li><p><strong>ValueError</strong> – Raised if signal is of incorrect shape.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.ngal_to_inv_cov">
+<span class="sig-name descname"><span class="pre">ngal_to_inv_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ngal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.ngal_to_inv_cov" title="Permalink to this definition"></a></dt>
+<dd><p>Converts galaxy number density map to
+data covariance.</p>
+<p>Assumes no intrinsic correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngal</strong> (<em>real array</em>) – pixel space map of observation counts per pixel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.forward_models.</span></span><span class="sig-name descname"><span class="pre">SphericalForwardModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel" title="Permalink to this definition"></a></dt>
+<dd><p>Weak Gravitational Lensing spherical Forward model</p>
+<p>Supports additional complexity which should simply
+be appended to the dir_op and adj_op objects
+appropriately (e.g. psf degridding step, psf
+deconvolution etc.)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct class to hold the spherical forward and
+forward adjoint operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> (<em>int</em>) – Spherical harmonic bandlimit</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Map of realspace masking.</p></li>
+<li><p><strong>ngal</strong> (<em>int array</em>) – Map of galaxy observation count.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – intrinsic ellipticity dispersion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if L is not positive</p></li>
+<li><p><strong>ValueError</strong> – Raised if mask is the wrong shape.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if L is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.adj_op">
+<span class="sig-name descname"><span class="pre">adj_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.adj_op" title="Permalink to this definition"></a></dt>
+<dd><p>Spherical weak lensing adjoint measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (cov weighted)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.compute_harmonic_kernel">
+<span class="sig-name descname"><span class="pre">compute_harmonic_kernel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.compute_harmonic_kernel" title="Permalink to this definition"></a></dt>
+<dd><p>Compuptes harmonic space kernel mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Harmonic space weak lensing kernel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.cov_weight">
+<span class="sig-name descname"><span class="pre">cov_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.cov_weight" title="Permalink to this definition"></a></dt>
+<dd><p>Applies covariance weighting to observations.</p>
+<p>Assumes no correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – pixel space map to be inverse covariance weighted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inverse covariance weighted observations y’ = y * sigma^-1/2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.dir_op">
+<span class="sig-name descname"><span class="pre">dir_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.dir_op" title="Permalink to this definition"></a></dt>
+<dd><p>Spherical weak lensing measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kappa</strong> (<em>complex array</em>) – Convergence signal</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.harmonic_inverse_mapping">
+<span class="sig-name descname"><span class="pre">harmonic_inverse_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.harmonic_inverse_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Applys harmonic space inverse mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flm</strong> (<em>complex array</em>) – harmonic coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inverse mapped harmonic coefficients glm = flm / K</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.harmonic_mapping">
+<span class="sig-name descname"><span class="pre">harmonic_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.harmonic_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Applys harmonic space mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flm</strong> (<em>complex array</em>) – harmonic coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Mapped harmonic coefficients glm = flm * K</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.mask_adjoint">
+<span class="sig-name descname"><span class="pre">mask_adjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.mask_adjoint" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask adjoint to observations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex array</em>) – Set of observations.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if signal is nan</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Gridded full-sky map of observations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.mask_forward">
+<span class="sig-name descname"><span class="pre">mask_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.mask_forward" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask to a field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>complex array</em>) – Realspace Signal</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if signal is nan</p></li>
+<li><p><strong>ValueError</strong> – Raised if signal is of incorrect shape.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of observations only.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.ngal_to_inv_cov">
+<span class="sig-name descname"><span class="pre">ngal_to_inv_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ngal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.ngal_to_inv_cov" title="Permalink to this definition"></a></dt>
+<dd><p>Converts galaxy number density map to data covariance.</p>
+<p>Assumes no correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngal</strong> (<em>real array</em>) – pixel space map of number of observations per pixel</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Data covariance, assuming no correlations and Gaussian noise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.sks_estimate">
+<span class="sig-name descname"><span class="pre">sks_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.sks_estimate" title="Permalink to this definition"></a></dt>
+<dd><p>Computes spherical Kaiser-Squires estimator (as a first estimate)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (full-sky)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.noise_simulations"></span><dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.noise_simulations.Gaussian_noise_plane">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.noise_simulations.</span></span><span class="sig-name descname"><span class="pre">Gaussian_noise_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gals_pix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.noise_simulations.Gaussian_noise_plane" title="Permalink to this definition"></a></dt>
+<dd><p>Adds realistic noise based on observational ngal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – Clean simulated data.</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Sky mask map</p></li>
+<li><p><strong>gals_pix</strong> (<em>float</em>) – Number of observations per pixel</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – Intrinsic ellipticity dispersion.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.noise_simulations.Gaussian_noise_sphere">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.noise_simulations.</span></span><span class="sig-name descname"><span class="pre">Gaussian_noise_sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.noise_simulations.Gaussian_noise_sphere" title="Permalink to this definition"></a></dt>
+<dd><p>Adds realistic noise based on observational ngal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – Clean simulated data.</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Sky mask map</p></li>
+<li><p><strong>L</strong> (<em>int</em>) – Angular bandlimit.</p></li>
+<li><p><strong>ngal</strong> (<em>float</em>) – Number density of galaxy observations to simulate.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – Intrinsic ellipticity dispersion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Input shape incorrect.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.noise_simulations.simulate_shear_plane">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.noise_simulations.</span></span><span class="sig-name descname"><span class="pre">simulate_shear_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sidelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.noise_simulations.simulate_shear_plane" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a realistic simulation of shear observations
+from input convergence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – Input convergence map</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Input convergence mask map</p></li>
+<li><p><strong>sidelength</strong> (<em>int</em>) – Angular span of axes.</p></li>
+<li><p><strong>ngal</strong> (<em>float</em>) – Number density of galaxy observations to simulate.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – Intrinsic ellipticity dispersion.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="darkmappy.noise_simulations.simulate_shear_sphere">
+<span class="sig-prename descclassname"><span class="pre">darkmappy.noise_simulations.</span></span><span class="sig-name descname"><span class="pre">simulate_shear_sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.noise_simulations.simulate_shear_sphere" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a realistic simulation of shear observations
+from input convergence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – Input convergence map</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Input convergence mask map</p></li>
+<li><p><strong>L</strong> (<em>int</em>) – Angular bandlimit.</p></li>
+<li><p><strong>ngal</strong> (<em>float</em>) – Number density of galaxy observations to simulate.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – Intrinsic ellipticity dispersion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Input shape incorrect.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.solvers"></span><dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.solvers.</span></span><span class="sig-name descname"><span class="pre">PrimalDual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'constrained':</span> <span class="pre">True,</span> <span class="pre">'iter':</span> <span class="pre">5000,</span> <span class="pre">'nu':</span> <span class="pre">0,</span> <span class="pre">'positivity':</span> <span class="pre">False,</span> <span class="pre">'real':</span> <span class="pre">False,</span> <span class="pre">'record_iters':</span> <span class="pre">False,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'update_iter':</span> <span class="pre">50}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual" title="Permalink to this definition"></a></dt>
+<dd><p>Class which handles all primal dual optimisation paradigms.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'constrained':</span> <span class="pre">True,</span> <span class="pre">'iter':</span> <span class="pre">5000,</span> <span class="pre">'nu':</span> <span class="pre">0,</span> <span class="pre">'positivity':</span> <span class="pre">False,</span> <span class="pre">'real':</span> <span class="pre">False,</span> <span class="pre">'record_iters':</span> <span class="pre">False,</span> <span class="pre">'tol':</span> <span class="pre">1e-05,</span> <span class="pre">'update_iter':</span> <span class="pre">50}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct primal dual general class.</p>
+<p>Any additional details should be here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Measurement operator (weights for poisson noise)</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Redundant dictionary (wavelets etc.)</p></li>
+<li><p><strong>(</strong><strong>)</strong> – (?)</p></li>
+<li><p><strong>constrained</strong> (<em>bool</em>) – Constrained vs unconstrained problem</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Data vector contains NaN values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.l1_constrained_gaussian">
+<span class="sig-name descname"><span class="pre">l1_constrained_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warm_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.l1_constrained_gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Solve constrained l1 regularisation problem with Gaussian noise.</p>
+<p>Can be instantiated from warm_start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Data-set to be optimised over.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Initial solution of optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Noise-level present in optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Scaling for l1-norm threshold</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Datavector size is 0 (empty set).</p></li>
+<li><p><strong>ValueError</strong> – Datavector contains NaN values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian">
+<span class="sig-name descname"><span class="pre">l1_unconstrained_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warm_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Solve unconstrained l1 regularisation problem with Gaussian noise.</p>
+<p>Can be instantiated from warm_start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Data-set to be optimised over.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Initial solution of optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Noise-level present in optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Regularisation parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Datavector size is 0 (empty set).</p></li>
+<li><p><strong>ValueError</strong> – Datavector contains NaN values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian_jm">
+<span class="sig-name descname"><span class="pre">l1_unconstrained_gaussian_jm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warm_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.solvers.PrimalDual.l1_unconstrained_gaussian_jm" title="Permalink to this definition"></a></dt>
+<dd><p>Solve unconstrained l1 regularisation problem with Gaussian noise.</p>
+<p>Can be instantiated from warm_start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>)</strong> (<em>beta</em>) – Data-set to be optimised over.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Initial solution of optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Noise-level present in optimisation.</p></li>
+<li><p><strong>(</strong><strong>)</strong> – Regularisation parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Datavector size is 0 (empty set).</p></li>
+<li><p><strong>ValueError</strong> – Datavector contains NaN values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.wavelet_wrappers"></span><dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.wavelet_wrappers.S2letWavelets">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.wavelet_wrappers.</span></span><span class="sig-name descname"><span class="pre">S2letWavelets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upsample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.wavelet_wrappers.S2letWavelets" title="Permalink to this definition"></a></dt>
+<dd><p>Linear operator wrapper for Spherical wavelet transforms using pys2let.</p>
+<p>All variations of the wavelet transform are supported.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.wavelet_wrappers.S2letWavelets.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upsample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.wavelet_wrappers.S2letWavelets.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct Spherical Wavelet transform class to hold all forward,
+inverse, and corresponding adjoint wavelet transforms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> (<em>int</em>) – Spherical harmonic bandlimit</p></li>
+<li><p><strong>B</strong> (<em>int</em>) – Wavelet tiling spread (2 = dyadic)</p></li>
+<li><p><strong>J_min</strong> (<em>int</em>) – Smallest wavelet scale</p></li>
+<li><p><strong>N</strong> (<em>int</em>) – directional samples (wigner space)</p></li>
+<li><p><strong>upsample</strong> (<em>bint</em>) – downscale wavelet scale maps.</p></li>
+<li><p><strong>Reality</strong> (<em>bint</em>) – Reality of signal.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if L is not positive</p></li>
+<li><p><strong>ValueError</strong> – Raised if B is less than 1.</p></li>
+<li><p><strong>ValueError</strong> – Raised if N is less than 1.</p></li>
+<li><p><strong>ValueError</strong> – Raised if N or B is more than L.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if L is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.wavelet_wrappers.S2letWavelets.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.wavelet_wrappers.S2letWavelets.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the forward spherical wavelet transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>np.complexarray</em>) – Realspace Signal</p></li>
+<li><p><strong>spin</strong> (<em>int</em>) – spin of field f</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if signal is nan</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.wavelet_wrappers.S2letWavelets.forward_adjoint">
+<span class="sig-name descname"><span class="pre">forward_adjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fws</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.wavelet_wrappers.S2letWavelets.forward_adjoint" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the forward_adjoint spherical wavelet transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_ws</strong> (<em>np.complexarray</em>) – Wavelet + scaling coefficients</p></li>
+<li><p><strong>spin</strong> (<em>int</em>) – spherical harmonic spin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if wavelet coefficients nan</p></li>
+<li><p><strong>ValueError</strong> – Raised if scaling coefficients nan</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.wavelet_wrappers.S2letWavelets.inverse">
+<span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fws</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.wavelet_wrappers.S2letWavelets.inverse" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the inverse spherical wavelet transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_ws</strong> (<em>np.complexarray</em>) – Wavelet + scaling coefficients</p></li>
+<li><p><strong>spin</strong> (<em>int</em>) – spherical harmonic spin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if wavelet coefficients nan</p></li>
+<li><p><strong>ValueError</strong> – Raised if scaling coefficients nan</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.wavelet_wrappers.S2letWavelets.inverse_adjoint">
+<span class="sig-name descname"><span class="pre">inverse_adjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.wavelet_wrappers.S2letWavelets.inverse_adjoint" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the inverse adjoint spherical wavelet transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>np.complexarray</em>) – Realspace Signal</p></li>
+<li><p><strong>spin</strong> (<em>int</em>) – spin of field f</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if signal is nan</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div><div aria-labelledby="tab-0-0-6" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-6" name="0-6" role="tabpanel" tabindex="0"><span class="target" id="module-darkmappy.estimators"></span><dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappyPlane">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.estimators.</span></span><span class="sig-name descname"><span class="pre">DarkMappyPlane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viewer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['db6']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constrained</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappyPlane" title="Permalink to this definition"></a></dt>
+<dd><p>Frontend class which handles dark matter reconstruction.</p>
+<p>This class currently supports the planar lensing forward
+model, a selection of sparsity priors, for Gaussian and
+Poissonian noise models.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappyPlane.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viewer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['db6']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constrained</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappyPlane.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct class to create and hold the MAP estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Pixel count along each axis (square image)</p></li>
+<li><p><strong>data</strong> (<em>complex array</em>) – Pixelised map of shear observations.</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Map of realspace masking.</p></li>
+<li><p><strong>ngal</strong> (<em>int array</em>) – Map of galaxy observation count.</p></li>
+<li><p><strong>wavs</strong> (<em>list</em>) – Wavelet dictionaries to use.</p></li>
+<li><p><strong>levels</strong> (<em>int</em>) – Number of levels within each wavelet dictionary.</p></li>
+<li><p><strong>supersample</strong> (<em>float</em>) – Amount of supersampling.</p></li>
+<li><p><strong>psi</strong> (<em>linear operator</em>) – Sparsifying dictionary.</p></li>
+<li><p><strong>constrained</strong> (<em>boolean</em>) – Constrained or unconstrained optimisation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if n is not positive.</p></li>
+<li><p><strong>ValueError</strong> – Raised if mask is the wrong shape.</p></li>
+<li><p><strong>ValueError</strong> – Raised if no data provided.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if no galaxy number density map provided.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if no masking map provided.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if n is very large.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if N is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappyPlane.normalise_phi">
+<span class="sig-name descname"><span class="pre">normalise_phi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappyPlane.normalise_phi" title="Permalink to this definition"></a></dt>
+<dd><p>Power method normalisation of forward-model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappyPlane.run_estimator">
+<span class="sig-name descname"><span class="pre">run_estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappyPlane.run_estimator" title="Permalink to this definition"></a></dt>
+<dd><p>Performs maximum a posteriori inference via
+proximal primal dual solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – Regularisation parameter of problem.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Whitened noise level of problem.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappySphere">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.estimators.</span></span><span class="sig-name descname"><span class="pre">DarkMappySphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viewer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constrained</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappySphere" title="Permalink to this definition"></a></dt>
+<dd><p>Frontend class which handles dark matter reconstruction.</p>
+<p>This class currently supports the spherical lensing forward
+model, a selection of sparsity priors, for Gaussian and
+Poissonian noise models.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappySphere.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viewer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constrained</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappySphere.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct class to create and hold the MAP estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> (<em>int</em>) – Spherical harmonic bandlimit.</p></li>
+<li><p><strong>N</strong> (<em>int</em>) – Directionality of wavelet dictionary.</p></li>
+<li><p><strong>data</strong> (<em>complex array</em>) – Pixelised map of shear observations.</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Map of realspace masking.</p></li>
+<li><p><strong>ngal</strong> (<em>int array</em>) – Map of galaxy observation count.</p></li>
+<li><p><strong>psi</strong> (<em>linear operator</em>) – Sparsifying dictionary.</p></li>
+<li><p><strong>constrained</strong> (<em>boolean</em>) – Constrained or unconstrained optimisation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if L is not positive.</p></li>
+<li><p><strong>ValueError</strong> – Raised if mask is the wrong shape.</p></li>
+<li><p><strong>ValueError</strong> – Raised if no data provided.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if no galaxy number density map provided.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if no masking map provided.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if L is very large.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if N is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappySphere.normalise_phi">
+<span class="sig-name descname"><span class="pre">normalise_phi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappySphere.normalise_phi" title="Permalink to this definition"></a></dt>
+<dd><p>Power method normalisation of forward-model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.estimators.DarkMappySphere.run_estimator">
+<span class="sig-name descname"><span class="pre">run_estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.estimators.DarkMappySphere.run_estimator" title="Permalink to this definition"></a></dt>
+<dd><p>Performs maximum a posteriori inference via
+proximal primal dual solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – Regularisation parameter of problem.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – White noise level of problem.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tutorials/example_notebook.html" class="btn btn-neutral float-left" title="Super-resolution Planar Mass-mapping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matthew A. Price &amp; Jason D. McEwen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

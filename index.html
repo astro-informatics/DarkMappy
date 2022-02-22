@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DarkMappy: hybrid Bayesian inference of the dark universe &mdash; darkmappy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom_tabs.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="_static/dark_mode_js/default_light.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="user_guide/install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#">
+            <img src="_static/darkmappy_alt_no_text.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interactive Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/example_notebook.html">Super-resolution Planar Mass-mapping</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Namespaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">darkmappy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>DarkMappy: hybrid Bayesian inference of the dark universe</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="darkmappy-hybrid-bayesian-inference-of-the-dark-universe">
+<h1>DarkMappy: hybrid Bayesian inference of the dark universe<a class="headerlink" href="#darkmappy-hybrid-bayesian-inference-of-the-dark-universe" title="Permalink to this headline"></a></h1>
+<p><a class="reference external" href="https://github.com/astro-informatics/DarkMappy"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-DarkMappy-brightgreen.svg?style=flat" /></a> <a class="reference external" href="https://github.com/astro-informatics/DarkMappy/actions/workflows/python.yml"><img alt="Build Status" src="https://github.com/astro-informatics/DarkMappy/actions/workflows/python.yml/badge.svg" /></a> <a class="reference external" href="https://astro-informatics.github.io/DarkMappy"><img alt="Docs" src="https://readthedocs.org/projects/ansicolortags/badge/?version=latest" /></a> <a class="reference external" href="https://codecov.io/gh/astro-informatics/DarkMappy"><img alt="CodeCov" src="https://codecov.io/gh/astro-informatics/DarkMappy/branch/main/graph/badge.svg?token=A5ogGPslpU" /></a> <a class="reference external" href="http://perso.crans.org/besson/LICENSE.html"><img alt="GPL License" src="https://img.shields.io/badge/License-GPL-blue.svg" /></a> <a class="reference external" href="https://arxiv.org/abs/2004.07855"><img alt="ArXiv 1" src="http://img.shields.io/badge/arXiv-2004.07855-orange.svg?style=flat" /></a> <a class="reference external" href="https://arxiv.org/abs/1812.04014"><img alt="ArXiv 2" src="http://img.shields.io/badge/arXiv-1812.04014-orange.svg?style=flat" /></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">darkmappy</span></code> is a lightweight python package which implements the hybrid Bayesian dark-matter reconstruction techniques
+outlined on the plane in <a class="reference external" href="https://academic.oup.com/mnras/article-abstract/506/3/3678/6319513">Price et al. 2019</a>, and on the celestial sphere in <a class="reference external" href="https://academic.oup.com/mnras/article/500/4/5436/5986632">Price et al. 2021</a> and <a class="reference external" href="https://academic.oup.com/mnras/article-abstract/509/3/4480/6424933">Wallis et al. 2021</a>. These techniques are based on <em>maximum a posteriori</em> estimation which, by construction, support principled uncertainty quantification, see <a class="reference external" href="https://epubs.siam.org/doi/10.1137/16M1071249">Pereyra 2016</a>.</p>
+</div>
+<div class="section" id="basic-usage">
+<h1>BASIC USAGE<a class="headerlink" href="#basic-usage" title="Permalink to this headline"></a></h1>
+<p>For planar reconstructions across the flat-sky the estimator can be run by the following, note that images must be square.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">darkmappy.estimators</span> <span class="k">as</span> <span class="nn">dm</span>
+
+<span class="c1"># LOAD YOUR DATA</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_shear_data</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">ngal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_ngal_per_pixel_map</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_observation_mask</span><span class="o">&gt;</span><span class="p">)</span>
+
+<span class="c1"># BUILD THE ESTIMATOR</span>
+<span class="n">dm_estimator</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">DarkMappyPlane</span><span class="p">(</span>
+           <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>                   <span class="c1"># Dimension of image</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>                <span class="c1"># Observed shear field</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">,</span>                <span class="c1"># Observational mask</span>
+        <span class="n">ngal</span> <span class="o">=</span> <span class="n">ngal</span><span class="p">,</span>                <span class="c1"># Map of number density of observations per pixel</span>
+         <span class="n">wav</span> <span class="o">=</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">select_wavelets</span><span class="o">&gt;</span><span class="p">],</span> <span class="c1"># see https://tinyurl.com/mrxeat3t</span>
+      <span class="n">levels</span> <span class="o">=</span> <span class="n">level</span><span class="p">,</span>               <span class="c1"># Wavelet levels</span>
+ <span class="n">supersample</span> <span class="o">=</span> <span class="n">supersample</span><span class="p">)</span>         <span class="c1"># Super-resolution factor (typically &lt;~2)</span>
+
+<span class="c1"># RUN THE ESTIMATOR</span>
+<span class="n">convergence</span><span class="p">,</span> <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">dm_estimator</span><span class="o">.</span><span class="n">run_estimator</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For spherical reconstructions across the full-sky the estimator can be run by the following, note images must be of dimension L by 2L-1, see <a class="reference external" href="https://ieeexplore.ieee.org/document/6006544">Mcewen &amp; Wiaux 2011</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">darkmappy.estimators</span> <span class="k">as</span> <span class="nn">dm</span>
+
+<span class="c1"># LOAD YOUR DATA</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_shear_data</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">ngal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_ngal_per_pixel_map</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_observation_mask</span><span class="o">&gt;</span><span class="p">)</span>
+
+<span class="c1"># BUILD THE ESTIMATOR</span>
+<span class="n">dm_estimator</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">DarkMapperSphere</span><span class="p">(</span>
+           <span class="n">L</span> <span class="o">=</span> <span class="n">L</span><span class="p">,</span>             <span class="c1"># Angular Bandlimit</span>
+           <span class="n">N</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span>             <span class="c1"># Azimuthal Bandlimit (wavelet directionality)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>          <span class="c1"># Observational shear data</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">,</span>          <span class="c1"># Observation mask</span>
+        <span class="n">ngal</span> <span class="o">=</span> <span class="n">ngal</span><span class="p">)</span>          <span class="c1"># Map of number density of observations per pixel</span>
+
+<span class="c1"># RUN THE ESTIMATOR</span>
+<span class="n">convergence</span><span class="p">,</span> <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">dm_estimator</span><span class="o">.</span><span class="n">run_estimator</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="contributors">
+<h1>CONTRIBUTORS<a class="headerlink" href="#contributors" title="Permalink to this headline"></a></h1>
+<p><a class="reference external" href="https://cosmomatt.github.io">Matthew A. Price</a>, <a class="reference external" href="http://www.jasonmcewen.org">Jason D. McEwen</a> &amp; Contributors</p>
+</div>
+<div class="section" id="attribution">
+<h1>ATTRIBUTION<a class="headerlink" href="#attribution" title="Permalink to this headline"></a></h1>
+<p>A BibTeX entry for <code class="docutils literal notranslate"><span class="pre">darkmappy</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">price</span><span class="p">:</span><span class="mi">2021</span><span class="p">:</span><span class="n">spherical</span><span class="p">,</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Sparse</span> <span class="n">Bayesian</span> <span class="n">mass</span><span class="o">-</span><span class="n">mapping</span> <span class="k">with</span> <span class="n">uncertainties</span><span class="p">:</span> <span class="n">Full</span> <span class="n">sky</span> <span class="n">observations</span> <span class="n">on</span> <span class="n">the</span> <span class="n">celestial</span> <span class="n">sphere</span><span class="p">},</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">M</span><span class="o">.~</span><span class="n">A</span><span class="o">.~</span><span class="n">Price</span> <span class="ow">and</span> <span class="n">J</span><span class="o">.~</span><span class="n">D</span><span class="o">.~</span><span class="n">McEwen</span> <span class="ow">and</span> <span class="n">L</span><span class="o">.~</span><span class="n">Pratley</span> <span class="ow">and</span> <span class="n">T</span><span class="o">.~</span><span class="n">D</span><span class="o">.~</span><span class="n">Kitching</span><span class="p">},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">Monthly</span> <span class="n">Notices</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Royal</span> <span class="n">Astronomical</span> <span class="n">Society</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2021</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">jan</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">500</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5436</span><span class="o">-</span><span class="mi">5452</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1093</span><span class="o">/</span><span class="n">mnras</span><span class="o">/</span><span class="n">staa3563</span><span class="p">},</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="p">{</span><span class="n">Oxford</span> <span class="n">University</span> <span class="n">Press</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">price</span><span class="p">:</span><span class="mi">2021</span><span class="p">:</span><span class="n">hypothesis</span><span class="p">,</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Sparse</span> <span class="n">Bayesian</span> <span class="n">mass</span> <span class="n">mapping</span> <span class="k">with</span> <span class="n">uncertainties</span><span class="p">:</span> <span class="n">hypothesis</span> <span class="n">testing</span> <span class="n">of</span> <span class="n">structure</span><span class="p">},</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">M</span><span class="o">.~</span><span class="n">A</span><span class="o">.~</span><span class="n">Price</span> <span class="ow">and</span> <span class="n">J</span><span class="o">.~</span><span class="n">D</span><span class="o">.~</span><span class="n">McEwen</span> <span class="ow">and</span> <span class="n">X</span><span class="o">.~</span><span class="n">Cai</span> <span class="ow">and</span> <span class="n">T</span><span class="o">.~</span><span class="n">D</span><span class="o">.~</span><span class="n">Kitching</span> <span class="ow">and</span> <span class="n">C</span><span class="o">.~</span><span class="n">G</span><span class="o">.~</span><span class="n">R</span><span class="o">.~</span><span class="n">Wallis</span> <span class="ow">and</span> <span class="p">{</span><span class="n">LSST</span> <span class="n">Dark</span> <span class="n">Energy</span> <span class="n">Science</span> <span class="n">Collaboration</span><span class="p">}},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">Monthly</span> <span class="n">Notices</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Royal</span> <span class="n">Astronomical</span> <span class="n">Society</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2021</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">jul</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">506</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3678</span><span class="o">--</span><span class="mi">3690</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1093</span><span class="o">/</span><span class="n">mnras</span><span class="o">/</span><span class="n">stab1983</span><span class="p">},</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="p">{</span><span class="n">Oxford</span> <span class="n">University</span> <span class="n">Press</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If, at any point, the direction inverse functionality (i.e. spherical Kaiser-Squires) please cite</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">wallis</span><span class="p">:</span><span class="mi">2021</span><span class="p">:</span><span class="n">massmappy</span><span class="p">,</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Mapping</span> <span class="n">dark</span> <span class="n">matter</span> <span class="n">on</span> <span class="n">the</span> <span class="n">celestial</span> <span class="n">sphere</span> <span class="k">with</span> <span class="n">weak</span> <span class="n">gravitational</span> <span class="n">lensing</span><span class="p">},</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">C</span><span class="o">.~</span><span class="n">G</span><span class="o">.~</span><span class="n">R</span><span class="o">.~</span><span class="n">Wallis</span> <span class="ow">and</span> <span class="n">M</span><span class="o">.~</span><span class="n">A</span><span class="o">.~</span><span class="n">Price</span> <span class="ow">and</span> <span class="n">J</span><span class="o">.~</span><span class="n">D</span><span class="o">.~</span><span class="n">McEwen</span> <span class="ow">and</span> <span class="n">T</span><span class="o">.~</span><span class="n">D</span><span class="o">.~</span><span class="n">Kitching</span> <span class="ow">and</span> <span class="n">B</span><span class="o">.~</span><span class="n">Leistedt</span> <span class="ow">and</span> <span class="n">A</span><span class="o">.~</span><span class="n">Plouviez</span><span class="p">},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">Monthly</span> <span class="n">Notices</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Royal</span> <span class="n">Astronomical</span> <span class="n">Society</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2021</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">Nov</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">509</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4480</span><span class="o">-</span><span class="mi">4497</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1093</span><span class="o">/</span><span class="n">mnras</span><span class="o">/</span><span class="n">stab3235</span><span class="p">},</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="p">{</span><span class="n">Oxford</span> <span class="n">University</span> <span class="n">Press</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, if uncertainty quantification techniques which rely on the approximate level-set threshold (derived by <a class="reference external" href="https://epubs.siam.org/doi/10.1137/16M1071249">Pereyra 2016</a>) are performed please consider citing relating articles appropriately.</p>
+</div>
+<div class="section" id="license">
+<h1>LICENSE<a class="headerlink" href="#license" title="Permalink to this headline"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">darkmappy</span></code> is released under the GPL-3 license (see <a class="reference external" href="https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE.txt">LICENSE.txt</a>), subject to
+the non-commercial use condition (see <a class="reference external" href="https://github.com/astro-informatics/DarkMappy/blob/main/LICENSE_EXT.txt">LICENSE_EXT.txt</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DarkMappy</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2022</span> <span class="n">Matthew</span> <span class="n">A</span><span class="o">.</span> <span class="n">Price</span><span class="p">,</span> <span class="n">Jason</span> <span class="n">D</span><span class="o">.</span> <span class="n">McEwen</span> <span class="o">&amp;</span> <span class="n">contributors</span>
+
+<span class="n">This</span> <span class="n">program</span> <span class="ow">is</span> <span class="n">released</span> <span class="n">under</span> <span class="n">the</span> <span class="n">GPL</span><span class="o">-</span><span class="mi">3</span> <span class="n">license</span> <span class="p">(</span><span class="n">see</span> <span class="n">LICENSE</span><span class="o">.</span><span class="n">txt</span><span class="p">),</span>
+<span class="n">subject</span> <span class="n">to</span> <span class="n">a</span> <span class="n">non</span><span class="o">-</span><span class="n">commercial</span> <span class="n">use</span> <span class="n">condition</span> <span class="p">(</span><span class="n">see</span> <span class="n">LICENSE_EXT</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span><span class="o">.</span>
+
+<span class="n">This</span> <span class="n">program</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">hope</span> <span class="n">that</span> <span class="n">it</span> <span class="n">will</span> <span class="n">be</span> <span class="n">useful</span><span class="p">,</span>
+<span class="n">but</span> <span class="n">WITHOUT</span> <span class="n">ANY</span> <span class="n">WARRANTY</span><span class="p">;</span> <span class="n">without</span> <span class="n">even</span> <span class="n">the</span> <span class="n">implied</span> <span class="n">warranty</span> <span class="n">of</span>
+<span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_guide/install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matthew A. Price &amp; Jason D. McEwen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; darkmappy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom_tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../_static/dark_mode_js/default_light.js"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/darkmappy_alt_no_text.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interactive Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/example_notebook.html">Super-resolution Planar Mass-mapping</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Namespaces</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">darkmappy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/forward_models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<span class="target" id="module-darkmappy.forward_models"></span><dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.forward_models.</span></span><span class="sig-name descname"><span class="pre">PlanarForwardModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel" title="Permalink to this definition"></a></dt>
+<dd><p>Weak Gravitational Lensing planar Forward model</p>
+<p>Supports additional complexity which should simply
+be appended to the dir_op and adj_op objects
+appropriately (e.g. psf degridding step, psf
+deconvolution etc.)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supersample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct class to hold the spherical forward and
+forward adjoint operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Pixel count along each axis (square images)</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Map of realspace masking.</p></li>
+<li><p><strong>ngal</strong> (<em>int array</em>) – Map of galaxy observation count.</p></li>
+<li><p><strong>supersample</strong> (<em>float</em>) – Degree of supersampling.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – intrinsic ellipticity dispersion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if map is of size 0.</p></li>
+<li><p><strong>ValueError</strong> – Raised if mask is the wrong shape.</p></li>
+<li><p><strong>ValueError</strong> – Raised if ngal is the wrong shape.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if L is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.adj_op">
+<span class="sig-name descname"><span class="pre">adj_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.adj_op" title="Permalink to this definition"></a></dt>
+<dd><p>Planar weak lensing adjoint measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (cov weighted)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.compute_fourier_kernels">
+<span class="sig-name descname"><span class="pre">compute_fourier_kernels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.compute_fourier_kernels" title="Permalink to this definition"></a></dt>
+<dd><p>Computes fourier space kernel mappings.</p>
+<p>Returns as a tuple {forward, inverse}.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.cov_weight">
+<span class="sig-name descname"><span class="pre">cov_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.cov_weight" title="Permalink to this definition"></a></dt>
+<dd><p>Applies covariance weighting to observations.</p>
+<p>Assumes no intrinsic correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – pixel space map to be inverse covariance weighted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.dir_op">
+<span class="sig-name descname"><span class="pre">dir_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.dir_op" title="Permalink to this definition"></a></dt>
+<dd><p>Planar weak lensing measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kappa</strong> (<em>complex array</em>) – Convergence signal</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.ks_estimate">
+<span class="sig-name descname"><span class="pre">ks_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.ks_estimate" title="Permalink to this definition"></a></dt>
+<dd><p>Computes Kaiser-Squires estimator (as a first estimate)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (patch)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.mask_adjoint">
+<span class="sig-name descname"><span class="pre">mask_adjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.mask_adjoint" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask adjoint to observations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex array</em>) – Set of observations.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if signal is nan</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.mask_forward">
+<span class="sig-name descname"><span class="pre">mask_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.mask_forward" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask to a field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>complex array</em>) – Realspace Signal</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if signal is nan</p></li>
+<li><p><strong>ValueError</strong> – Raised if signal is of incorrect shape.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.PlanarForwardModel.ngal_to_inv_cov">
+<span class="sig-name descname"><span class="pre">ngal_to_inv_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ngal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.PlanarForwardModel.ngal_to_inv_cov" title="Permalink to this definition"></a></dt>
+<dd><p>Converts galaxy number density map to
+data covariance.</p>
+<p>Assumes no intrinsic correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngal</strong> (<em>real array</em>) – pixel space map of observation counts per pixel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">darkmappy.forward_models.</span></span><span class="sig-name descname"><span class="pre">SphericalForwardModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel" title="Permalink to this definition"></a></dt>
+<dd><p>Weak Gravitational Lensing spherical Forward model</p>
+<p>Supports additional complexity which should simply
+be appended to the dir_op and adj_op objects
+appropriately (e.g. psf degridding step, psf
+deconvolution etc.)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.37</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Construct class to hold the spherical forward and
+forward adjoint operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> (<em>int</em>) – Spherical harmonic bandlimit</p></li>
+<li><p><strong>mask</strong> (<em>int array</em>) – Map of realspace masking.</p></li>
+<li><p><strong>ngal</strong> (<em>int array</em>) – Map of galaxy observation count.</p></li>
+<li><p><strong>sigma_e</strong> (<em>float</em>) – intrinsic ellipticity dispersion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if L is not positive</p></li>
+<li><p><strong>ValueError</strong> – Raised if mask is the wrong shape.</p></li>
+<li><p><strong>WarningLog</strong> – Raised if L is very large.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.adj_op">
+<span class="sig-name descname"><span class="pre">adj_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.adj_op" title="Permalink to this definition"></a></dt>
+<dd><p>Spherical weak lensing adjoint measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (cov weighted)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.compute_harmonic_kernel">
+<span class="sig-name descname"><span class="pre">compute_harmonic_kernel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.compute_harmonic_kernel" title="Permalink to this definition"></a></dt>
+<dd><p>Compuptes harmonic space kernel mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Harmonic space weak lensing kernel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.cov_weight">
+<span class="sig-name descname"><span class="pre">cov_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.cov_weight" title="Permalink to this definition"></a></dt>
+<dd><p>Applies covariance weighting to observations.</p>
+<p>Assumes no correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – pixel space map to be inverse covariance weighted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inverse covariance weighted observations y’ = y * sigma^-1/2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.dir_op">
+<span class="sig-name descname"><span class="pre">dir_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.dir_op" title="Permalink to this definition"></a></dt>
+<dd><p>Spherical weak lensing measurement operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kappa</strong> (<em>complex array</em>) – Convergence signal</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.harmonic_inverse_mapping">
+<span class="sig-name descname"><span class="pre">harmonic_inverse_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.harmonic_inverse_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Applys harmonic space inverse mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flm</strong> (<em>complex array</em>) – harmonic coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inverse mapped harmonic coefficients glm = flm / K</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.harmonic_mapping">
+<span class="sig-name descname"><span class="pre">harmonic_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.harmonic_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Applys harmonic space mapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flm</strong> (<em>complex array</em>) – harmonic coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Mapped harmonic coefficients glm = flm * K</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.mask_adjoint">
+<span class="sig-name descname"><span class="pre">mask_adjoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.mask_adjoint" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask adjoint to observations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex array</em>) – Set of observations.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if signal is nan</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Gridded full-sky map of observations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.mask_forward">
+<span class="sig-name descname"><span class="pre">mask_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.mask_forward" title="Permalink to this definition"></a></dt>
+<dd><p>Applies given mask to a field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>complex array</em>) – Realspace Signal</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised if signal is nan</p></li>
+<li><p><strong>ValueError</strong> – Raised if signal is of incorrect shape.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of observations only.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.ngal_to_inv_cov">
+<span class="sig-name descname"><span class="pre">ngal_to_inv_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ngal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.ngal_to_inv_cov" title="Permalink to this definition"></a></dt>
+<dd><p>Converts galaxy number density map to data covariance.</p>
+<p>Assumes no correlation between pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngal</strong> (<em>real array</em>) – pixel space map of number of observations per pixel</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Data covariance, assuming no correlations and Gaussian noise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="darkmappy.forward_models.SphericalForwardModel.sks_estimate">
+<span class="sig-name descname"><span class="pre">sks_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#darkmappy.forward_models.SphericalForwardModel.sks_estimate" title="Permalink to this definition"></a></dt>
+<dd><p>Computes spherical Kaiser-Squires estimator (as a first estimate)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>complex array</em>) – Shear Observations (full-sky)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matthew A. Price &amp; Jason D. McEwen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
