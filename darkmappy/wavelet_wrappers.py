@@ -1,7 +1,7 @@
 import numpy as np
 import pyssht as ssht
 import pys2let as s2let
-
+import darkmappy.logs as lg
 
 class S2letWavelets:
     """
